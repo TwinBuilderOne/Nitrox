@@ -10,6 +10,6 @@ class ServerPluginProcessor : ClientPacketProcessor<ServerPlugin>
     {
         Log.InGame("Installing plugin...");
         Assembly pluginAssembly = Assembly.Load(packet.SerializedPlugin);
-        pluginAssembly.GetType("Plugin").GetMethod("Initialize").Invoke(null, null);
+        pluginAssembly.GetType("Plugin.Plugin").GetMethod("Initialize", BindingFlags.Static | BindingFlags.Public).Invoke(null, null);
     }
 }

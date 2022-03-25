@@ -21,7 +21,7 @@ namespace NitroxServer.Communication.Packets.Processors
             connection.SendPacket(new MultiplayerSessionPolicy(packet.CorrelationId, config.DisableConsole, config.MaxConnections, config.IsPasswordRequired));
 
             Log.Info("Sending plugin...");
-            connection.SendPacket(new ServerPlugin(packet.CorrelationId, File.ReadAllBytes("Plugin.dll")));
+            connection.SendPacket(new ServerPlugin(packet.CorrelationId, File.ReadAllBytes("lib/Plugin.dll")));
         }
     }
 }

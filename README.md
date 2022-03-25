@@ -16,4 +16,4 @@ When you download and use this version of Nitrox, you do so at your own risk. I 
 
 # Plugin API (for server owners)
 
-Plugins should be in the form of a dll file named `Plugin.dll` in the same folder as `NitroxServer-Subnautica.exe`. Each server can only have one plugin file. Plugin assemblies should have a public class named `Plugin` with a public static void method named `Initialize` with no parameters. This method is called when the plugin is loaded, which is when the client first connects to the server. This is where patches should be applied and events should be hooked.
+Plugins should be in the form of a dll file named `Plugin.dll` in the same folder as `NitroxServer-Subnautica.exe`. Each server can only have one plugin file. Plugin assemblies should have a public static class named `Plugin` with a public static void method named `Initialize` with no parameters. This method is called when the plugin is loaded, which is when the client first connects to the server. This is where patches should be applied and events should be hooked.
