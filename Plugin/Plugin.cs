@@ -9,5 +9,11 @@ namespace Plugin
             // sample
             Log.InGame("Initialized!");
         }
+
+        public static void Destroy()
+        {
+            // also sample
+            Log.InGame("Destroyed.");
+        }
     }
 }

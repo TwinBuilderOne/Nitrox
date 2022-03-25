@@ -5,6 +5,7 @@ using NitroxClient.Communication.Abstract;
 using NitroxClient.Communication.MultiplayerSession.ConnectionState;
 using NitroxClient.GameLogic;
 using NitroxModel;
+using NitroxModel.Core;
 using NitroxModel.Helper;
 using NitroxModel.MultiplayerSession;
 using NitroxModel.Packets;
@@ -106,6 +107,8 @@ namespace NitroxClient.Communication.MultiplayerSession
             {
                 CurrentState.Disconnect(this);
             }
+
+            NitroxServiceLocator.LocateService<PluginManager>().UnloadPlugin();
         }
 
         public bool Send(Packet packet)
