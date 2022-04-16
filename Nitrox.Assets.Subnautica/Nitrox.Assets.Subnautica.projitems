@@ -9,5 +9,6 @@
     <Import_RootNamespace>Nitrox.Assets.Subnautica</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
+    <None Include="$(MSBuildThisFileDirectory)BinaryPack.dll" />
   </ItemGroup>
 </Project>

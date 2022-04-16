@@ -9,11 +9,12 @@
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\CodeSharing\Microsoft.CodeSharing.Common.props" />
   <PropertyGroup />
   <Import Project="Nitrox.Assets.Subnautica.projitems" Label="Shared" />
-
   <!-- Include all files in project directory automatically -->
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)**" Exclude="**\*.projitems;obj\**" CopyToOutputDirectory="Always" />
   </ItemGroup>
-
+  <ItemGroup>
+    <Content Remove="BinaryPack.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\CodeSharing\Microsoft.CodeSharing.CSharp.targets" />
 </Project>
