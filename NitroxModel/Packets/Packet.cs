@@ -43,11 +43,6 @@ namespace NitroxModel.Packets
             return BinaryConverter.Deserialize<Wrapper>(lz4Stream).Packet;
         }
 
-        public static bool IsTypeSerializable(Type type)
-        {
-            throw new NotSupportedException();
-        }
-
         public WrapperPacket ToWrapperPacket()
         {
             return new WrapperPacket(Serialize());
