@@ -32,7 +32,7 @@ namespace NitroxModel.Packets
         {
             using MemoryStream ms = new();
             using LZ4Stream lz4Stream = new(ms, LZ4StreamMode.Compress);
-            BinaryConverter.Serialize(this, lz4Stream);
+            BinaryConverter.Serialize(new Wrapper(this), lz4Stream);
             return ms.ToArray();
         }
 
@@ -40,7 +40,7 @@ namespace NitroxModel.Packets
         {
             using MemoryStream stream = new(data);
             using LZ4Stream lz4Stream = new(stream, LZ4StreamMode.Decompress);
-            return (Packet)BinaryConverter.Deserialize(lz4Stream);
+            return BinaryConverter.Deserialize<Wrapper>(lz4Stream).Packet;
         }
 
         public static bool IsTypeSerializable(Type type)
@@ -82,6 +82,23 @@ namespace NitroxModel.Packets
             toStringBuilder.Append("]");
 
             return toStringBuilder.ToString();
+        }
+
+        // Wrapper class used to serialize packets in BinaryPack
+        // We cannot serialize Packets directly because
+        // 1) We will not know what type to deserialize to and
+        // 2) The root object must use ObjectProcessor<T> so it can't be abstract
+        // This class solves both problems and only adds a single byte to the data
+        private class Wrapper
+        {
+            public Packet Packet { get; set; }
+
+            public Wrapper() { }
+
+            public Wrapper(Packet packet)
+            {
+                Packet = packet;
+            }
         }
     }
 }
