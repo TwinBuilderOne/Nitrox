@@ -17,8 +17,21 @@ namespace NitroxModel.Packets
         private static readonly Dictionary<Type, PropertyInfo[]> cachedPropertiesByType = new();
         private static readonly StringBuilder toStringBuilder = new();
 
-        public NitroxDeliveryMethod.DeliveryMethod DeliveryMethod { get; protected set; } = NitroxDeliveryMethod.DeliveryMethod.RELIABLE_ORDERED;
-        public UdpChannelId UdpChannel { get; protected set; } = UdpChannelId.DEFAULT;
+        static Packet()
+        {
+            BinaryConverter.RegisterUnion<Packet>(AppDomain.CurrentDomain.GetAssemblies()
+                                   .Where(assembly => new string[] { "NitroxModel", "NitroxModel-Subnautica" }
+                                       .Contains(assembly.GetName().Name))
+                                   .SelectMany(assembly => assembly.GetTypes()
+                                                                   .Where(t => t.IsSubclassOf(typeof(Packet))))
+                                   .ToArray());
+
+        }
+
+        public Packet() { }
+
+        public NitroxDeliveryMethod.DeliveryMethod DeliveryMethod { get; set; } = NitroxDeliveryMethod.DeliveryMethod.RELIABLE_ORDERED;
+        public UdpChannelId UdpChannel { get; set; } = UdpChannelId.DEFAULT;
 
         public enum UdpChannelId
         {
@@ -30,17 +43,12 @@ namespace NitroxModel.Packets
 
         public byte[] Serialize()
         {
-            using MemoryStream ms = new();
-            using LZ4Stream lz4Stream = new(ms, LZ4StreamMode.Compress);
-            BinaryConverter.Serialize(new Wrapper(this), lz4Stream);
-            return ms.ToArray();
+            return BinaryConverter.Serialize(new Wrapper(this));
         }
 
         public static Packet Deserialize(byte[] data)
         {
-            using MemoryStream stream = new(data);
-            using LZ4Stream lz4Stream = new(stream, LZ4StreamMode.Decompress);
-            return BinaryConverter.Deserialize<Wrapper>(lz4Stream).Packet;
+            return BinaryConverter.Deserialize<Wrapper>(data).Packet;
         }
 
         public WrapperPacket ToWrapperPacket()
@@ -84,7 +92,7 @@ namespace NitroxModel.Packets
         // 1) We will not know what type to deserialize to and
         // 2) The root object must use ObjectProcessor<T> so it can't be abstract
         // This class solves both problems and only adds a single byte to the data
-        private class Wrapper
+        public class Wrapper
         {
             public Packet Packet { get; set; }
 

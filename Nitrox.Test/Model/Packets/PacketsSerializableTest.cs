@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NitroxModel.Packets;
 
@@ -27,6 +26,7 @@ namespace NitroxTest.Model.Packets
             foreach (Packet packet in packets)
             {
                 testedType = packet.GetType();
+
                 Packet.Deserialize(packet.Serialize()); // Consider testing for equality? Would be annoying to implement though
             }
         }
