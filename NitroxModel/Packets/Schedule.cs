@@ -8,7 +8,9 @@ namespace NitroxModel.Packets
         public float TimeExecute { get; }
         public string Key { get; }
         public string Type { get; }
-        
+
+        public Schedule() { }
+
         public Schedule(float timeExecute, string key, string type)
         {
             TimeExecute = timeExecute;

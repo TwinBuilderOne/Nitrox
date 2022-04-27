@@ -12,6 +12,8 @@ namespace NitroxModel.Packets
         public NitroxId Id { get; }
         public float DouseAmount { get; }
 
+        public FireDoused() { }
+
         /// <param name="id">The Fire id</param>
         /// <param name="douseAmount">The amount to douse the fire by. A large number will extinguish the fire. A large number still calls the same 
         ///     method, <see cref="Fire.Douse(float)"/>, which will call <see cref="Fire.Extinguish"/> if the douse amount would extinguish it.</param>

@@ -10,6 +10,8 @@ namespace NitroxModel_Subnautica.Packets
         public NitroxId Id { get; }
         public bool IsOn { get; }
 
+        public CyclopsChangeShieldMode() { }
+
         public CyclopsChangeShieldMode(NitroxId id, bool isOn)
         {
             Id = id;

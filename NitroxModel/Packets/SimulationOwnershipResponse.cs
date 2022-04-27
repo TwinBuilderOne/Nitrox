@@ -10,6 +10,8 @@ namespace NitroxModel.Packets
         public bool LockAcquired { get; }
         public SimulationLockType LockType { get; }
 
+        public SimulationOwnershipResponse() { }
+
         public SimulationOwnershipResponse(NitroxId id, bool lockAcquired, SimulationLockType lockType)
         {
             Id = id;

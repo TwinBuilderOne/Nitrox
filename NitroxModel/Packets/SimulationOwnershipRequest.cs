@@ -10,6 +10,8 @@ namespace NitroxModel.Packets
         public NitroxId Id { get; }
         public SimulationLockType LockType { get; }
 
+        public SimulationOwnershipRequest() { }
+
         public SimulationOwnershipRequest(ushort playerId, NitroxId id, SimulationLockType lockType)
         {
             PlayerId = playerId;

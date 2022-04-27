@@ -10,6 +10,8 @@ namespace NitroxModel.Packets
         public AbsoluteEntityCell[] Added { get; }
         public AbsoluteEntityCell[] Removed { get; }
 
+        public CellVisibilityChanged() { }
+
         public CellVisibilityChanged(ushort playerId, AbsoluteEntityCell[] added, AbsoluteEntityCell[] removed)
         {
             PlayerId = playerId;

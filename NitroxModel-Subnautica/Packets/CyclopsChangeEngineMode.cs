@@ -10,6 +10,8 @@ namespace NitroxModel_Subnautica.Packets
         public NitroxId Id { get; }
         public CyclopsMotorMode.CyclopsMotorModes Mode { get; }
 
+        public CyclopsChangeEngineMode() { }
+
         public CyclopsChangeEngineMode(NitroxId id, CyclopsMotorMode.CyclopsMotorModes mode)
         {
             Id = id;

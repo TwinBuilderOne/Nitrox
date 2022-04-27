@@ -9,6 +9,8 @@ namespace NitroxModel.Packets
         public NitroxId Id { get; }
         public float HealthAdded { get; }
 
+        public WeldAction() { }
+
         public WeldAction(NitroxId id, float healthAdded)
         {
             Id = id;

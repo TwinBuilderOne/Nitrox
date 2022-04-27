@@ -8,6 +8,8 @@ namespace NitroxModel.Packets
     {
         public ServerGameMode GameMode { get; }
 
+        public GameModeChanged() { }
+
         public GameModeChanged(ServerGameMode gameMode)
         {
             GameMode = gameMode;

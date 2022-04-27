@@ -8,6 +8,8 @@ namespace NitroxModel.Packets
     {
         public EscapePodModel EscapePod { get; }
 
+        public AddEscapePod() { }
+
         public AddEscapePod(EscapePodModel escapePod)
         {
             EscapePod = escapePod;

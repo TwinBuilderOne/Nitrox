@@ -10,6 +10,8 @@ namespace NitroxModel.Packets
         public string PlayerName { get; }
         public bool GetPilotingMode { get; }
 
+        public VehicleDestroyed() { }
+
         public VehicleDestroyed(NitroxId id, string playerName, bool getPilotingMode)
         {
             Id = id;

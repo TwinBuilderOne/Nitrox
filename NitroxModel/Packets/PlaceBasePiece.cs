@@ -8,6 +8,8 @@ namespace NitroxModel.Packets
     {
         public BasePiece BasePiece { get; }
 
+        public PlaceBasePiece() { }
+
         public PlaceBasePiece(BasePiece basePiece)
         {
             BasePiece = basePiece;

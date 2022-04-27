@@ -11,6 +11,8 @@ namespace NitroxModel.Packets
         public NitroxId VehicleId { get; }
         public string Name { get; }
 
+        public VehicleNameChange() { }
+
         public VehicleNameChange(NitroxId parentId, NitroxId vehicleId, string name)
         {
             ParentId = Optional.OfNullable(parentId);

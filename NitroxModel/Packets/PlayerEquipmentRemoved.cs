@@ -10,6 +10,8 @@ namespace NitroxModel.Packets
         public NitroxTechType TechType { get; }
         public NitroxId EquippedItemId { get; }
 
+        public PlayerEquipmentRemoved() { }
+
         public PlayerEquipmentRemoved(NitroxTechType techType, NitroxId equippeditemId)
         {
             TechType = techType;

@@ -13,6 +13,8 @@ namespace NitroxModel.Packets
         public MultiplayerSessionAuthenticationAuthority AuthenticationAuthority { get; }
         public Version NitroxVersionAllowed { get; }
 
+        public MultiplayerSessionPolicy() : base("") { }
+
         public MultiplayerSessionPolicy(string correlationId, bool disableConsole, int maxConnections, bool requiresServerPassword) : base(correlationId)
         {
             // This is done intentionally. It is only a stub for future extension.

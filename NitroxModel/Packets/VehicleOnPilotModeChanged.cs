@@ -10,6 +10,8 @@ namespace NitroxModel.Packets
         public ushort PlayerId { get; }
         public bool IsPiloting { get; }
 
+        public VehicleOnPilotModeChanged() { }
+
         public VehicleOnPilotModeChanged(NitroxId vehicleId, ushort playerId, bool isPiloting)
         {
             VehicleId = vehicleId;

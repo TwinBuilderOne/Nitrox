@@ -14,6 +14,8 @@ namespace NitroxModel.Packets
         public float Water { get; }
         public float InfectionAmount { get; }
 
+        public PlayerStats() { }
+
         public PlayerStats(ushort playerId, float oxygen, float maxOxygen, float health, float food, float water, float infectionAmount)
         {
             PlayerId = playerId;

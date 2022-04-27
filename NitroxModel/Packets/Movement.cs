@@ -13,6 +13,8 @@ namespace NitroxModel.Packets
         public NitroxQuaternion BodyRotation { get; }
         public NitroxQuaternion AimingRotation { get; }
 
+        public Movement() { }
+
         public Movement(ushort playerId, NitroxVector3 position, NitroxVector3 velocity, NitroxQuaternion bodyRotation, NitroxQuaternion aimingRotation)
         {
             PlayerId = playerId;

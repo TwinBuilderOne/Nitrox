@@ -9,6 +9,8 @@ namespace NitroxModel.Packets
         public string PlayerName { get; }
         public NitroxVector3 DeathPosition { get; }
 
+        public PlayerDeathEvent() { }
+
         public PlayerDeathEvent(string playerName, NitroxVector3 deathPosition)
         {
             PlayerName = playerName;

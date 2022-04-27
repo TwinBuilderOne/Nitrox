@@ -8,6 +8,8 @@ namespace NitroxModel.Packets
         public EventType Type { get; }
         public string Key { get; }
 
+        public StoryEventSend() { }
+
         public StoryEventSend(EventType type, string key = "")
         {
             Type = type;

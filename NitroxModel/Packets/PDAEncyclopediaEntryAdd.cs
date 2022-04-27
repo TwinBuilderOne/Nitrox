@@ -7,6 +7,8 @@ namespace NitroxModel.Packets
     {
         public string Key { get; }
 
+        public PDAEncyclopediaEntryAdd() { }
+
         public PDAEncyclopediaEntryAdd(string key)
         {
             Key = key;

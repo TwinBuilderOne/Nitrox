@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
-using LZ4;
 using NitroxModel.Networking;
 using BinaryConverter = BinaryPack.BinaryConverter;
 
@@ -23,12 +21,10 @@ namespace NitroxModel.Packets
                                    .Where(assembly => new string[] { "NitroxModel", "NitroxModel-Subnautica" }
                                        .Contains(assembly.GetName().Name))
                                    .SelectMany(assembly => assembly.GetTypes()
-                                                                   .Where(t => t.IsSubclassOf(typeof(Packet))))
+                                                                   .Where(t => typeof(Packet).IsAssignableFrom(t)
+                                                                               && !t.IsAbstract && !t.IsInterface))
                                    .ToArray());
-
         }
-
-        public Packet() { }
 
         public NitroxDeliveryMethod.DeliveryMethod DeliveryMethod { get; set; } = NitroxDeliveryMethod.DeliveryMethod.RELIABLE_ORDERED;
         public UdpChannelId UdpChannel { get; set; } = UdpChannelId.DEFAULT;
@@ -96,7 +92,8 @@ namespace NitroxModel.Packets
         {
             public Packet Packet { get; set; }
 
-            public Wrapper() { }
+            public Wrapper()
+            { }
 
             public Wrapper(Packet packet)
             {

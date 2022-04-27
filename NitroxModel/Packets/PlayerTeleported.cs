@@ -13,6 +13,8 @@ namespace NitroxModel.Packets
         public NitroxVector3 DestinationTo { get; }
         public Optional<NitroxId> SubRootID { get; }
 
+        public PlayerTeleported() { }
+
         public PlayerTeleported(string playerName, NitroxVector3 destinationFrom, NitroxVector3 destinationTo, Optional<NitroxId> subRootID)
         {
             PlayerName = playerName;

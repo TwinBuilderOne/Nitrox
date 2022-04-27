@@ -13,6 +13,8 @@ namespace NitroxModel_Subnautica.Packets
     {
         public CyclopsFireData FireCreatedData { get; }
 
+        public CyclopsFireCreated() { }
+
         public CyclopsFireCreated(NitroxId id, NitroxId cyclopsId, CyclopsRooms room, int nodeIndex)
         {
             FireCreatedData = new CyclopsFireData(id, cyclopsId, room, nodeIndex);

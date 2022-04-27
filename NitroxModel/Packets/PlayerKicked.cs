@@ -7,6 +7,8 @@ namespace NitroxModel.Packets
     {
         public string Reason { get; }
 
+        public PlayerKicked() { }
+
         public PlayerKicked(string reason)
         {
             Reason = reason;

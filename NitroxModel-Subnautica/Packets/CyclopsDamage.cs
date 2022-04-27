@@ -21,6 +21,8 @@ namespace NitroxModel_Subnautica.Packets
         public CyclopsFireData[] RoomFires { get; }
         public CyclopsDamageInfoData DamageInfo { get; }
 
+        public CyclopsDamage() { }
+
         /// <param name="id"><see cref="SubRoot"/> Id.</param>
         /// <param name="subHealth"><see cref="SubRoot.liveMixin.health"/>.</param>
         /// <param name="damageManagerHealth"><see cref="CyclopsExternalDamageManager.subLiveMixin.health"/>.</param>

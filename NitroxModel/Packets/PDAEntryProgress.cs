@@ -12,6 +12,8 @@ namespace NitroxModel.Packets
         public int Unlocked { get; }
         public NitroxId NitroxId { get; }
 
+        public PDAEntryProgress() { }
+
         public PDAEntryProgress(NitroxTechType techType, float progress, int unlocked, NitroxId nitroxId)
         {
             TechType = techType;

@@ -7,6 +7,8 @@ namespace NitroxModel.Packets
     {
         public string Cmd { get; }
 
+        public ServerCommand() { }
+
         public ServerCommand(string cmd)
         {
             Cmd = cmd;

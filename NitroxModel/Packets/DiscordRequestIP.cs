@@ -7,6 +7,8 @@ public class DiscordRequestIP : Packet
 {
     public string IpPort { get; set; }
 
+    public DiscordRequestIP() { }
+
     public DiscordRequestIP(string ipPort)
     {
         IpPort = ipPort;

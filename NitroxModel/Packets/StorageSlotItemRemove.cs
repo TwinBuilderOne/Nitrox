@@ -8,6 +8,8 @@ namespace NitroxModel.Packets
     {
         public NitroxId OwnerId { get; }
 
+        public StorageSlotItemRemove() { }
+
         public StorageSlotItemRemove(NitroxId ownerId)
         {
             OwnerId = ownerId;

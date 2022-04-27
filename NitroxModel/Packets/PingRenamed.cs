@@ -10,6 +10,8 @@ namespace NitroxModel.Packets
         public string Name { get; }
         public byte[] BeaconGameObjectSerialized { get; }
 
+        public PingRenamed() { }
+
         public PingRenamed(NitroxId id, string name, byte[] beaconGameObjectSerialized)
         {
             Id = id;

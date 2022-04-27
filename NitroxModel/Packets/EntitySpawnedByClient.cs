@@ -8,6 +8,8 @@ namespace NitroxModel.Packets
     {
         public Entity Entity { get; }
 
+        public EntitySpawnedByClient() { }
+
         public EntitySpawnedByClient(Entity entity)
         {
             Entity = entity;

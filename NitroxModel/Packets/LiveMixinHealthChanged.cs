@@ -17,6 +17,8 @@ namespace NitroxModel.Packets
         public float LifeChanged { get; set; }
         public float TotalHealth { get; }
 
+        public LiveMixinHealthChanged() { }
+
         public LiveMixinHealthChanged(NitroxTechType techType, NitroxId id, float lifeChanged, float totalHealth)
         {
             TechType = techType;

@@ -9,6 +9,8 @@ namespace NitroxModel.Packets
         public byte[] SerializedData { get; }
         public VehicleModel VehicleModel { get; }
 
+        public VehicleSpawned() { }
+
         public VehicleSpawned(byte[] serializedData, VehicleModel vehicleModel)
         {
             SerializedData = serializedData;

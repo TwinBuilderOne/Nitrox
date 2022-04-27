@@ -9,6 +9,8 @@ namespace NitroxModel.Packets
     {
         public List<Entity> Entities { get; }
 
+        public CellEntities() { }
+
         public CellEntities(List<Entity> entities)
         {
             Entities = entities;

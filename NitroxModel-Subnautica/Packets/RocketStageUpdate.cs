@@ -11,6 +11,8 @@ namespace NitroxModel_Subnautica.Packets
         public int NewStage { get; }
         public TechType CurrentStageTech { get; }
 
+        public RocketStageUpdate() { }
+
         public RocketStageUpdate(NitroxId id, int newStage, TechType currentStageTech)
         {
             Id = id;

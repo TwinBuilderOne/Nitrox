@@ -9,6 +9,8 @@ namespace NitroxModel.Packets
     {
         public IList<NitroxVector3> StartPositions { get; }
 
+        public DebugStartMapPacket() { }
+
         public DebugStartMapPacket(IList<NitroxVector3> startPositions)
         {
             StartPositions = startPositions;

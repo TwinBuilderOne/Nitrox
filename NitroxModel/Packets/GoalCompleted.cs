@@ -7,6 +7,8 @@ public class GoalCompleted : Packet
 {
     public string CompletedGoal { get; }
 
+    public GoalCompleted() { }
+
     public GoalCompleted(string completedGoal)
     {
         CompletedGoal = completedGoal;

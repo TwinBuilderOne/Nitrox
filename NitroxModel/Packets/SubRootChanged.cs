@@ -10,6 +10,8 @@ namespace NitroxModel.Packets
         public ushort PlayerId { get; }
         public Optional<NitroxId> SubRootId { get; }
 
+        public SubRootChanged() { }
+
         public SubRootChanged(ushort playerId, Optional<NitroxId> subRootId)
         {
             PlayerId = playerId;

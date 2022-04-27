@@ -9,6 +9,8 @@ namespace NitroxModel_Subnautica.Packets
     {
         public NitroxId Id { get; }
 
+        public CyclopsDecoyLaunch() { }
+
         public CyclopsDecoyLaunch(NitroxId id)
         {
             Id = id;

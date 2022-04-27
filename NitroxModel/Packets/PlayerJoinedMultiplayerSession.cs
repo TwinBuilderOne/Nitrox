@@ -15,6 +15,8 @@ namespace NitroxModel.Packets
         public List<NitroxTechType> EquippedTechTypes { get; }
         public List<ItemData> InventoryItems { get; }
 
+        public PlayerJoinedMultiplayerSession() { }
+
         public PlayerJoinedMultiplayerSession(PlayerContext playerContext, Optional<NitroxId> subRootId, List<NitroxTechType> equippedTechTypes, List<ItemData> inventoryItems)
         {
             PlayerContext = playerContext;

@@ -11,6 +11,8 @@ namespace NitroxModel.Packets
         public NitroxId ConstructorId { get; }
         public float Duration { get; }
 
+        public ConstructorBeginCrafting() { }
+
         public ConstructorBeginCrafting(VehicleModel vehicleModel, NitroxId constructorId, float duration)
         {
             ConstructorId = constructorId;

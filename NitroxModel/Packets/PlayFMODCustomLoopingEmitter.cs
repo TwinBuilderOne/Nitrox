@@ -9,6 +9,8 @@ namespace NitroxModel.Packets
         public NitroxId Id { get; }
         public string AssetPath { get; }
 
+        public PlayFMODCustomLoopingEmitter() { }
+
         public PlayFMODCustomLoopingEmitter(NitroxId id, string assetPath)
         {
             Id = id;

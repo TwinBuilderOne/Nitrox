@@ -11,6 +11,8 @@ namespace NitroxModel_Subnautica.Packets
         public NitroxId Id { get; }
         public SerializableCreatureAction NewAction { get; }
 
+        public CreatureActionChanged() { }
+
         public CreatureActionChanged(NitroxId id, SerializableCreatureAction newAction)
         {
             Id = id;

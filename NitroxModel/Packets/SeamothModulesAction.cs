@@ -14,6 +14,8 @@ namespace NitroxModel.Packets
         public NitroxVector3 Forward { get; }
         public NitroxQuaternion Rotation { get; }
 
+        public SeamothModulesAction() { }
+
         public SeamothModulesAction(NitroxTechType techType, int slotID, NitroxId id, NitroxVector3 forward, NitroxQuaternion rotation)
         {
             TechType = techType;

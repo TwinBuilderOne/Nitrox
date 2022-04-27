@@ -9,6 +9,8 @@ namespace NitroxModel.Packets
     {
         public List<SimulatedEntity> Entities { get; }
 
+        public SimulationOwnershipChange() { }
+
         public SimulationOwnershipChange(NitroxId id, ushort owningPlayerId, SimulationLockType lockType)
         {
             Entities = new List<SimulatedEntity>

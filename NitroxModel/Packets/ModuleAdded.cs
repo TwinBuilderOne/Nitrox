@@ -9,6 +9,8 @@ namespace NitroxModel.Packets
         public EquippedItemData EquippedItemData { get; }
         public bool PlayerModule { get; }
 
+        public ModuleAdded() { }
+
         public ModuleAdded(EquippedItemData equippedItemData, bool playerModule)
         {
             EquippedItemData = equippedItemData;

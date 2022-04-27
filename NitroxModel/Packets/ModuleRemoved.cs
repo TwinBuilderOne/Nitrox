@@ -11,6 +11,8 @@ namespace NitroxModel.Packets
         public NitroxId ItemId { get; }
         public bool PlayerModule { get; }
 
+        public ModuleRemoved() { }
+
         public ModuleRemoved(NitroxId ownerId, string slot, NitroxId itemId, bool playerModule)
         {
             OwnerId = ownerId;

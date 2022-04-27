@@ -9,6 +9,8 @@ namespace NitroxModel.Packets
     [Serializable]
     public class MultiplayerSessionPolicyRequest : CorrelatedPacket
     {
+        public MultiplayerSessionPolicyRequest() : base("") { }
+
         public MultiplayerSessionPolicyRequest(string correlationId) : base(correlationId)
         {
         }

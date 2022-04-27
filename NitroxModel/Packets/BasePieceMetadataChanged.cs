@@ -10,6 +10,8 @@ namespace NitroxModel.Packets
         public NitroxId PieceId { get; }
         public BasePieceMetadata Metadata { get; }
 
+        public BasePieceMetadataChanged() { }
+
         public BasePieceMetadataChanged(NitroxId pieceId, BasePieceMetadata metadata)
         {
             PieceId = pieceId;
