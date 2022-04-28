@@ -17,13 +17,23 @@ namespace NitroxModel.Packets
 
         static Packet()
         {
-            BinaryConverter.RegisterUnion<Packet>(AppDomain.CurrentDomain.GetAssemblies()
-                                   .Where(assembly => new string[] { "NitroxModel", "NitroxModel-Subnautica" }
-                                       .Contains(assembly.GetName().Name))
-                                   .SelectMany(assembly => assembly.GetTypes()
-                                                                   .Where(t => typeof(Packet).IsAssignableFrom(t)
-                                                                               && !t.IsAbstract && !t.IsInterface))
-                                   .ToArray());
+            static IEnumerable<Type> FindTypesInModelAssemblies()
+            {
+                return AppDomain.CurrentDomain.GetAssemblies()
+                                              .Where(assembly => new string[] { "NitroxModel", "NitroxModel-Subnautica" }
+                                                                 .Contains(assembly.GetName().Name))
+                                              .SelectMany(assembly => assembly.GetTypes());
+            }
+
+            static IEnumerable<Type> FindUnionBaseTypes() => FindTypesInModelAssemblies()
+                .Where(t => t.IsAbstract && !t.IsSealed && (!t.BaseType?.IsAbstract ?? true) && !t.ContainsGenericParameters);
+
+            foreach (Type type in FindUnionBaseTypes())
+            {
+                BinaryConverter.RegisterUnion(type, FindTypesInModelAssemblies().Where(t => type.IsAssignableFrom(t)
+                                                                                            && !t.IsAbstract && !t.IsInterface)
+                                                                                .ToArray());
+            }
         }
 
         public NitroxDeliveryMethod.DeliveryMethod DeliveryMethod { get; set; } = NitroxDeliveryMethod.DeliveryMethod.RELIABLE_ORDERED;
