@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Numerics;
+using BinaryPack.Attributes;
 using NitroxModel.DataStructures.GameLogic;
 using NitroxModel.Helper;
 using ProtoBufNet;
@@ -30,6 +31,8 @@ namespace NitroxModel.DataStructures.Unity
         }
 
         public NitroxTransform Parent;
+
+        [IgnoredMember] // Would cause infinite loop if serialized
         public Entity Entity;
 
         public NitroxVector3 Position
@@ -80,8 +83,7 @@ namespace NitroxModel.DataStructures.Unity
             Rotation = rotation;
         }
 
-        private NitroxTransform()
-        { }
+        public NitroxTransform() { }
 
         /// <summary>
         /// NitroxTransform is always attached to an Entity

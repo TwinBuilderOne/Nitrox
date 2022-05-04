@@ -7,8 +7,8 @@ namespace NitroxModel_Subnautica.Packets
     [Serializable]
     public class RocketPreflightComplete : Packet
     {
-        public NitroxId Id { get; }
-        public PreflightCheck FlightCheck { get; }
+        public NitroxId Id { get; set; }
+        public PreflightCheck FlightCheck { get; set; }
 
         public RocketPreflightComplete() { }
 

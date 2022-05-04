@@ -6,10 +6,10 @@ namespace NitroxModel.Packets
     [Serializable]
     public class PlayFMODStudioEmitter : Packet
     {
-        public NitroxId Id { get; }
-        public string AssetPath { get; }
-        public bool Play { get; }
-        public bool AllowFadeout { get; }
+        public NitroxId Id { get; set; }
+        public string AssetPath { get; set; }
+        public bool Play { get; set; }
+        public bool AllowFadeout { get; set; }
 
         public PlayFMODStudioEmitter() { }
 

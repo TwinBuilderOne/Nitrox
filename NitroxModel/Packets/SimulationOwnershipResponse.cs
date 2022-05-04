@@ -6,9 +6,9 @@ namespace NitroxModel.Packets
     [Serializable]
     public class SimulationOwnershipResponse : Packet
     {
-        public NitroxId Id { get; }
-        public bool LockAcquired { get; }
-        public SimulationLockType LockType { get; }
+        public NitroxId Id { get; set; }
+        public bool LockAcquired { get; set; }
+        public SimulationLockType LockType { get; set; }
 
         public SimulationOwnershipResponse() { }
 

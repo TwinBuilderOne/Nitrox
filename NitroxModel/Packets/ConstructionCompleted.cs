@@ -6,8 +6,8 @@ namespace NitroxModel.Packets
     [Serializable]
     public class ConstructionCompleted : Packet
     {
-        public NitroxId PieceId { get; }
-        public NitroxId BaseId { get; }
+        public NitroxId PieceId { get; set; }
+        public NitroxId BaseId { get; set; }
 
         public ConstructionCompleted() { }
 

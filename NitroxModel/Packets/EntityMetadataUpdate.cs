@@ -7,9 +7,9 @@ namespace NitroxModel.Packets
     [Serializable]
     public class EntityMetadataUpdate : Packet
     {
-        public NitroxId Id { get; }
+        public NitroxId Id { get; set; }
 
-        public EntityMetadata NewValue { get; }
+        public EntityMetadata NewValue { get; set; }
 
         public EntityMetadataUpdate() { }
 

@@ -5,8 +5,8 @@ namespace NitroxModel.Packets
     [Serializable]
     public class StoryEventSend : Packet
     {
-        public EventType Type { get; }
-        public string Key { get; }
+        public EventType Type { get; set; }
+        public string Key { get; set; }
 
         public StoryEventSend() { }
 

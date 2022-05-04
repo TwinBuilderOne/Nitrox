@@ -9,12 +9,12 @@ namespace NitroxModel.Packets
     [Serializable]
     public class DroppedItem : Packet
     {
-        public NitroxId Id { get; }
-        public Optional<NitroxId> WaterParkId { get; }
-        public NitroxTechType TechType { get; }
-        public NitroxVector3 ItemPosition { get; }
-        public NitroxQuaternion ItemRotation { get; }
-        public byte[] Bytes { get; }
+        public NitroxId Id { get; set; }
+        public Optional<NitroxId> WaterParkId { get; set; }
+        public NitroxTechType TechType { get; set; }
+        public NitroxVector3 ItemPosition { get; set; }
+        public NitroxQuaternion ItemRotation { get; set; }
+        public byte[] Bytes { get; set; }
 
         public DroppedItem() { }
 

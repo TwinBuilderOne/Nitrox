@@ -6,9 +6,9 @@ namespace NitroxModel.Packets
     [Serializable]
     public class PlayFMODCustomEmitter : Packet
     {
-        public NitroxId Id { get; }
-        public string AssetPath { get; }
-        public bool Play { get; }
+        public NitroxId Id { get; set; }
+        public string AssetPath { get; set; }
+        public bool Play { get; set; }
 
         public PlayFMODCustomEmitter() { }
 

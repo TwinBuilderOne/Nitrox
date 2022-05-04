@@ -7,10 +7,10 @@ namespace NitroxModel.Packets
     [Serializable]
     public class PDAEntryProgress : Packet
     {
-        public NitroxTechType TechType { get; }
-        public float Progress { get; }
-        public int Unlocked { get; }
-        public NitroxId NitroxId { get; }
+        public NitroxTechType TechType { get; set; }
+        public float Progress { get; set; }
+        public int Unlocked { get; set; }
+        public NitroxId NitroxId { get; set; }
 
         public PDAEntryProgress() { }
 

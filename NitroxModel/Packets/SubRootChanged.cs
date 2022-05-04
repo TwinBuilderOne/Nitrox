@@ -7,8 +7,8 @@ namespace NitroxModel.Packets
     [Serializable]
     public class SubRootChanged : Packet
     {
-        public ushort PlayerId { get; }
-        public Optional<NitroxId> SubRootId { get; }
+        public ushort PlayerId { get; set; }
+        public Optional<NitroxId> SubRootId { get; set; }
 
         public SubRootChanged() { }
 

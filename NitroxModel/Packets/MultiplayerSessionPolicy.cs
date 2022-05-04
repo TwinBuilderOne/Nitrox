@@ -1,4 +1,5 @@
 ﻿using System;
+using NitroxModel.DataStructures;
 using NitroxModel.MultiplayerSession;
 
 namespace NitroxModel.Packets
@@ -6,12 +7,12 @@ namespace NitroxModel.Packets
     [Serializable]
     public class MultiplayerSessionPolicy : CorrelatedPacket
     {
-        public bool RequiresServerPassword { get; }
-        public bool DisableConsole { get; }
-        public int MaxConnections { get; }
+        public bool RequiresServerPassword { get; set; }
+        public bool DisableConsole { get; set; }
+        public int MaxConnections { get; set; }
 
-        public MultiplayerSessionAuthenticationAuthority AuthenticationAuthority { get; }
-        public Version NitroxVersionAllowed { get; }
+        public MultiplayerSessionAuthenticationAuthority AuthenticationAuthority { get; set; }
+        public NitroxVersion NitroxVersionAllowed { get; set; }
 
         public MultiplayerSessionPolicy() : base("") { }
 
@@ -25,7 +26,7 @@ namespace NitroxModel.Packets
             // get the full version name
             Version ver = typeof(MultiplayerSessionPolicy).Assembly.GetName().Version;
             // only the major and minor version number is required
-            NitroxVersionAllowed = new Version(ver.Major, ver.Minor);
+            NitroxVersionAllowed = new NitroxVersion(ver.Major, ver.Minor);
         }
     }
 }

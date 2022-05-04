@@ -7,9 +7,9 @@ namespace NitroxModel_Subnautica.Packets
     [Serializable]
     public class RocketElevatorCall : Packet
     {
-        public bool Up { get; }
-        public NitroxId Id { get; }
-        public RocketElevatorPanel Panel { get; }
+        public bool Up { get; set; }
+        public NitroxId Id { get; set; }
+        public RocketElevatorPanel Panel { get; set; }
 
         public RocketElevatorCall() { }
 

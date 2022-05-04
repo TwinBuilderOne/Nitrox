@@ -7,9 +7,9 @@ namespace NitroxModel_Subnautica.Packets
     [Serializable]
     public class CyclopsToggleEngineState : Packet
     {
-        public NitroxId Id { get; }
-        public bool IsOn { get; }
-        public bool IsStarting { get; }
+        public NitroxId Id { get; set; }
+        public bool IsOn { get; set; }
+        public bool IsStarting { get; set; }
 
         public CyclopsToggleEngineState() { }
 

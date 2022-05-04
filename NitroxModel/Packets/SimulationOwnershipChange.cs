@@ -7,7 +7,7 @@ namespace NitroxModel.Packets
     [Serializable]
     public class SimulationOwnershipChange : Packet
     {
-        public List<SimulatedEntity> Entities { get; }
+        public List<SimulatedEntity> Entities { get; set; }
 
         public SimulationOwnershipChange() { }
 

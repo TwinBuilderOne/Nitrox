@@ -6,8 +6,8 @@ namespace NitroxModel.Packets
     [Serializable]
     public class ModuleAdded : Packet
     {
-        public EquippedItemData EquippedItemData { get; }
-        public bool PlayerModule { get; }
+        public EquippedItemData EquippedItemData { get; set; }
+        public bool PlayerModule { get; set; }
 
         public ModuleAdded() { }
 

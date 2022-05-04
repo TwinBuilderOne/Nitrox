@@ -16,9 +16,9 @@ namespace NitroxModel_Subnautica.DataStructures.GameLogic.Buildings.Rotation
         [ProtoMember(2)]
         public int Direction { get; set; }
 
-        protected BaseModuleRotationMetadata() : base(typeof(BaseAddModuleGhost))
+        public BaseModuleRotationMetadata() : base(typeof(BaseAddModuleGhost))
         {
-            // Constructor for serialization. Has to be "protected" for json serialization.
+            // Constructor for serialization.
         }
 
         public BaseModuleRotationMetadata(NitroxInt3 cell, int direction) : base(typeof(BaseAddModuleGhost))

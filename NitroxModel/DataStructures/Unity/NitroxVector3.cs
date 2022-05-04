@@ -92,8 +92,8 @@ namespace NitroxModel.DataStructures.Unity
             return new(lhs.X * rhs, lhs.Y * rhs, lhs.Z * rhs);
         }
 
-        public static explicit operator Vector3(NitroxVector3 v) => new Vector3(v.X, v.Y,v.Z);
-        public static explicit operator NitroxVector3(Vector3 v) => new NitroxVector3(v.X, v.Y,v.Z);
+        public static explicit operator Vector3(NitroxVector3 v) => new Vector3(v.X, v.Y, v.Z);
+        public static explicit operator NitroxVector3(Vector3 v) => new NitroxVector3(v.X, v.Y, v.Z);
 
         public static NitroxVector3 Normalize(NitroxVector3 value)
         {

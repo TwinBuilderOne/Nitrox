@@ -6,8 +6,8 @@ namespace NitroxModel.Packets
     [Serializable]
     public class PlayerDeathEvent : Packet
     {
-        public string PlayerName { get; }
-        public NitroxVector3 DeathPosition { get; }
+        public string PlayerName { get; set; }
+        public NitroxVector3 DeathPosition { get; set; }
 
         public PlayerDeathEvent() { }
 

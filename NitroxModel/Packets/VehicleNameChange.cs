@@ -7,9 +7,9 @@ namespace NitroxModel.Packets
     [Serializable]
     public class VehicleNameChange : Packet
     {
-        public Optional<NitroxId> ParentId { get; }
-        public NitroxId VehicleId { get; }
-        public string Name { get; }
+        public Optional<NitroxId> ParentId { get; set; }
+        public NitroxId VehicleId { get; set; }
+        public string Name { get; set; }
 
         public VehicleNameChange() { }
 

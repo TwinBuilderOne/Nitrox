@@ -8,11 +8,11 @@ namespace NitroxModel.DataStructures.GameLogic.Entities.Metadata
     public class KeypadMetadata : EntityMetadata
     {
         [ProtoMember(1)]
-        public bool Unlocked { get; }
+        public bool Unlocked { get; set; }
 
-        protected KeypadMetadata()
+        public KeypadMetadata()
         {
-            // Constructor for serialization. Has to be "protected" for json serialization.
+            // Constructor for serialization.
         }
 
         public KeypadMetadata(bool unlocked)

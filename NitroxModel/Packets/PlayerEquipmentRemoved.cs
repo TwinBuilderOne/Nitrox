@@ -7,8 +7,8 @@ namespace NitroxModel.Packets
     [Serializable]
     public class PlayerEquipmentRemoved : Packet
     {
-        public NitroxTechType TechType { get; }
-        public NitroxId EquippedItemId { get; }
+        public NitroxTechType TechType { get; set; }
+        public NitroxId EquippedItemId { get; set; }
 
         public PlayerEquipmentRemoved() { }
 

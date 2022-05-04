@@ -8,11 +8,11 @@ namespace NitroxModel.DataStructures.GameLogic.Entities.Metadata
     public class WeldableWallPanelGenericMetadata : EntityMetadata
     {
         [ProtoMember(1)]
-        public float LiveMixInHealth { get; }
+        public float LiveMixInHealth { get; set; }
 
-        protected WeldableWallPanelGenericMetadata()
+        public WeldableWallPanelGenericMetadata()
         {
-            //Constructor for serialization. Has to be "protected" for json serialization.
+            //Constructor for serialization.
         }
 
         public WeldableWallPanelGenericMetadata(float liveMixInHealth)

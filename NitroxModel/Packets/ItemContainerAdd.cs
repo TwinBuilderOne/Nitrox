@@ -6,7 +6,7 @@ namespace NitroxModel.Packets
     [Serializable]
     public class ItemContainerAdd : Packet
     {
-        public ItemData ItemData { get; }
+        public ItemData ItemData { get; set; }
 
         public ItemContainerAdd() { }
 

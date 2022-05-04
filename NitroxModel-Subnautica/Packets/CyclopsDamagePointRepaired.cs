@@ -7,9 +7,9 @@ namespace NitroxModel_Subnautica.Packets
     [Serializable]
     public class CyclopsDamagePointRepaired : Packet
     {
-        public NitroxId Id { get; }
-        public int DamagePointIndex { get; }
-        public float RepairAmount { get; }
+        public NitroxId Id { get; set; }
+        public int DamagePointIndex { get; set; }
+        public float RepairAmount { get; set; }
 
         public CyclopsDamagePointRepaired() { }
 

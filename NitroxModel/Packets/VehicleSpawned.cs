@@ -6,8 +6,8 @@ namespace NitroxModel.Packets
     [Serializable]
     public class VehicleSpawned : Packet
     {
-        public byte[] SerializedData { get; }
-        public VehicleModel VehicleModel { get; }
+        public byte[] SerializedData { get; set; }
+        public VehicleModel VehicleModel { get; set; }
 
         public VehicleSpawned() { }
 

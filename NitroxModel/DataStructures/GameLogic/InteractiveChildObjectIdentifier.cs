@@ -13,9 +13,9 @@ namespace NitroxModel.DataStructures.GameLogic
         [ProtoMember(2)]
         public string GameObjectNamePath { get; set; }
 
-        protected InteractiveChildObjectIdentifier()
+        public InteractiveChildObjectIdentifier()
         {
-            // Constructor for serialization. Has to be "protected" for json serialization.
+            // Constructor for serialization.
         }
 
         public InteractiveChildObjectIdentifier(NitroxId id, string gameObjectNamePath)

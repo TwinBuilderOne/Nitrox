@@ -5,7 +5,7 @@ namespace NitroxModel.Packets
     [Serializable]
     public class Disconnect : Packet
     {
-        public ushort PlayerId { get; }
+        public ushort PlayerId { get; set; }
 
         public Disconnect() { }
 

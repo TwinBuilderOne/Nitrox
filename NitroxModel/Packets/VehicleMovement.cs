@@ -7,7 +7,7 @@ namespace NitroxModel.Packets
     [Serializable]
     public class VehicleMovement : Movement
     {
-        public VehicleMovementData VehicleMovementData { get; }
+        public VehicleMovementData VehicleMovementData { get; set; }
 
         public VehicleMovement() { }
 

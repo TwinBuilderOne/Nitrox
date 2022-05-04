@@ -8,13 +8,13 @@ namespace NitroxModel.DataStructures.GameLogic.Entities.Metadata
     public class StarshipDoorMetadata : EntityMetadata
     {
         [ProtoMember(1)]
-        public bool DoorLocked { get; }
+        public bool DoorLocked { get; set; }
         [ProtoMember(2)]
-        public bool DoorOpen { get; }
+        public bool DoorOpen { get; set; }
 
-        protected StarshipDoorMetadata()
+        public StarshipDoorMetadata()
         {
-            //Constructor for serialization. Has to be "protected" for json serialization.
+            //Constructor for serialization.
         }
 
         public StarshipDoorMetadata(bool doorLocked, bool doorOpen)

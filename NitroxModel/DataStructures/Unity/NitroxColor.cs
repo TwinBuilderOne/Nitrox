@@ -8,16 +8,16 @@ namespace NitroxModel.DataStructures.Unity
     public struct NitroxColor
     {
         [ProtoMember(1)]
-        public float R { get; private set; }
+        public float R { get; set; }
 
         [ProtoMember(2)]
-        public float G { get; private set; }
+        public float G { get; set; }
 
         [ProtoMember(3)]
-        public float B { get; private set; }
+        public float B { get; set; }
 
         [ProtoMember(4)]
-        public float A { get; private set; }
+        public float A { get; set; }
 
         public NitroxColor(float r, float g, float b, float a = 1)
         {

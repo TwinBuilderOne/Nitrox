@@ -7,8 +7,8 @@ namespace NitroxModel_Subnautica.Packets
     [Serializable]
     public class CyclopsChangeEngineMode : Packet
     {
-        public NitroxId Id { get; }
-        public CyclopsMotorMode.CyclopsMotorModes Mode { get; }
+        public NitroxId Id { get; set; }
+        public CyclopsMotorMode.CyclopsMotorModes Mode { get; set; }
 
         public CyclopsChangeEngineMode() { }
 

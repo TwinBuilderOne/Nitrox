@@ -6,8 +6,8 @@ namespace NitroxModel.Packets
     [Serializable]
     public class ConstructionAmountChanged : Packet
     {
-        public NitroxId Id { get; }
-        public float ConstructionAmount { get; }
+        public NitroxId Id { get; set; }
+        public float ConstructionAmount { get; set; }
 
         public ConstructionAmountChanged() { }
 

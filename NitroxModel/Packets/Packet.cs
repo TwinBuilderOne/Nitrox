@@ -22,7 +22,17 @@ namespace NitroxModel.Packets
                 return AppDomain.CurrentDomain.GetAssemblies()
                                               .Where(assembly => new string[] { "NitroxModel", "NitroxModel-Subnautica" }
                                                                  .Contains(assembly.GetName().Name))
-                                              .SelectMany(assembly => assembly.GetTypes());
+                                              .SelectMany(assembly =>
+                                                  {
+                                                      try
+                                                      {
+                                                          return assembly.GetTypes();
+                                                      }
+                                                      catch (ReflectionTypeLoadException e)
+                                                      {
+                                                          return e.Types.Where(t => t != null);
+                                                      }
+                                                  });
             }
 
             static IEnumerable<Type> FindUnionBaseTypes() => FindTypesInModelAssemblies()
@@ -32,6 +42,7 @@ namespace NitroxModel.Packets
             {
                 BinaryConverter.RegisterUnion(type, FindTypesInModelAssemblies().Where(t => type.IsAssignableFrom(t)
                                                                                             && !t.IsAbstract && !t.IsInterface)
+                                                                                .OrderBy(t => t.FullName)
                                                                                 .ToArray());
             }
         }

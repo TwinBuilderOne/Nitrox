@@ -7,8 +7,8 @@ namespace NitroxModel.Packets
     [Serializable]
     public class BasePieceMetadataChanged : Packet
     {
-        public NitroxId PieceId { get; }
-        public BasePieceMetadata Metadata { get; }
+        public NitroxId PieceId { get; set; }
+        public BasePieceMetadata Metadata { get; set; }
 
         public BasePieceMetadataChanged() { }
 

@@ -61,7 +61,7 @@ namespace NitroxModel.DataStructures.GameLogic
 
         [ProtoMember(11)]
         public EntityMetadata Metadata { get; set; }
-        
+
         /// <summary>
         ///     If set, this entity already exists as a gameobject in the world (maybe as a child of a prefab we already spawned).
         ///     This id can be used to find the object and update the corresponding id.
@@ -71,9 +71,9 @@ namespace NitroxModel.DataStructures.GameLogic
 
         public List<Entity> ChildEntities { get; set; } = new List<Entity>();
 
-        protected Entity()
+        public Entity()
         {
-            // Constructor for serialization. Has to be "protected" for json serialization.
+            // Constructor for serialization.
         }
 
         public Entity(NitroxVector3 localPosition, NitroxQuaternion localRotation, NitroxVector3 scale, NitroxTechType techType, int level, string classId, bool spawnedByServer, NitroxId id, int? existingGameObjectChildIndex, Entity parentEntity = null)

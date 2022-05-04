@@ -7,8 +7,8 @@ namespace NitroxModel.Packets
     [Serializable]
     public class GhostCrafterItemPickup : Packet
     {
-        public NitroxId GhostCrafterId { get; }
-        public NitroxTechType TechType { get; }
+        public NitroxId GhostCrafterId { get; set; }
+        public NitroxTechType TechType { get; set; }
 
         public GhostCrafterItemPickup() { }
 

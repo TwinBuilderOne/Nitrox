@@ -7,9 +7,9 @@ namespace NitroxModel.Packets
     [Serializable]
     public class GhostCrafterBeginCrafting : Packet
     {
-        public NitroxId GhostCrafterId { get; }
-        public NitroxTechType TechType { get; }
-        public float Duration { get; }
+        public NitroxId GhostCrafterId { get; set; }
+        public NitroxTechType TechType { get; set; }
+        public float Duration { get; set; }
 
         public GhostCrafterBeginCrafting() { }
 

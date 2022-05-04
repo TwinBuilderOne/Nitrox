@@ -7,7 +7,7 @@ namespace NitroxModel_Subnautica.Packets
     [Serializable]
     public class CyclopsSonarPing : Packet
     {
-        public NitroxId Id { get; }
+        public NitroxId Id { get; set; }
 
         public CyclopsSonarPing() { }
 

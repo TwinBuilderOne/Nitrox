@@ -8,10 +8,10 @@ namespace NitroxModel.Packets
     [Serializable]
     public class PlayerTeleported : Packet
     {
-        public string PlayerName { get; }
-        public NitroxVector3 DestinationFrom { get; }
-        public NitroxVector3 DestinationTo { get; }
-        public Optional<NitroxId> SubRootID { get; }
+        public string PlayerName { get; set; }
+        public NitroxVector3 DestinationFrom { get; set; }
+        public NitroxVector3 DestinationTo { get; set; }
+        public Optional<NitroxId> SubRootID { get; set; }
 
         public PlayerTeleported() { }
 

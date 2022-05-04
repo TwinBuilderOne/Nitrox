@@ -8,14 +8,14 @@ namespace NitroxModel.DataStructures.GameLogic
     public class EquippedItemData : ItemData
     {
         [ProtoMember(1)]
-        public string Slot { get; }
+        public string Slot { get; set; }
 
         [ProtoMember(2)]
-        public NitroxTechType TechType { get; }
+        public NitroxTechType TechType { get; set; }
 
-        protected EquippedItemData()
+        public EquippedItemData()
         {
-            // Constructor for serialization. Has to be "protected" for json serialization.
+            // Constructor for serialization.
         }
 
         public EquippedItemData(NitroxId containerId, NitroxId itemId, byte[] serializedData, string slot, NitroxTechType techType) : base(containerId, itemId, serializedData)

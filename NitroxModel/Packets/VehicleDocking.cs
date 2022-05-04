@@ -6,9 +6,9 @@ namespace NitroxModel.Packets
     [Serializable]
     public class VehicleDocking : Packet
     {
-        public NitroxId VehicleId { get; }
-        public NitroxId DockId { get; }
-        public ushort PlayerId { get; }
+        public NitroxId VehicleId { get; set; }
+        public NitroxId DockId { get; set; }
+        public ushort PlayerId { get; set; }
 
         public VehicleDocking() { }
 

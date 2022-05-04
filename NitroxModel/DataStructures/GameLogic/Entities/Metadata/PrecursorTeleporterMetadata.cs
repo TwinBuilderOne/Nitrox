@@ -8,11 +8,11 @@ namespace NitroxModel.DataStructures.GameLogic.Entities.Metadata
     public class PrecursorTeleporterMetadata : EntityMetadata
     {
         [ProtoMember(1)]
-        public bool IsOpen { get; }
+        public bool IsOpen { get; set; }
 
-        protected PrecursorTeleporterMetadata()
+        public PrecursorTeleporterMetadata()
         {
-            // Constructor for serialization. Has to be "protected" for json serialization.
+            // Constructor for serialization.
         }
 
         public PrecursorTeleporterMetadata(bool isOpen)

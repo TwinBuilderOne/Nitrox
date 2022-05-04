@@ -8,11 +8,11 @@ namespace NitroxModel_Subnautica.Packets
     [Serializable]
     public class ExosuitArmActionPacket : Packet
     {
-        public TechType TechType { get; }
-        public NitroxId ArmId { get; }
-        public ExosuitArmAction ArmAction { get; }
-        public Vector3? OpVector { get; }
-        public Quaternion? OpRotation { get; }
+        public TechType TechType { get; set; }
+        public NitroxId ArmId { get; set; }
+        public ExosuitArmAction ArmAction { get; set; }
+        public Vector3? OpVector { get; set; }
+        public Quaternion? OpRotation { get; set; }
 
         public ExosuitArmActionPacket() { }
 

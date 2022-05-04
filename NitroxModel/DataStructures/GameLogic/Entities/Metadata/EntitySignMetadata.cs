@@ -22,9 +22,9 @@ public class EntitySignMetadata : EntityMetadata
     [ProtoMember(5)]
     public bool Background { get; set; }
 
-    protected EntitySignMetadata()
+    public EntitySignMetadata()
     {
-        //Constructor for serialization. Has to be "protected" for json serialization.
+        //Constructor for serialization.
     }
 
     public EntitySignMetadata(string text, int colorIndex, int scaleIndex, bool[] elements, bool background)

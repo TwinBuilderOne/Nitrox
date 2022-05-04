@@ -12,10 +12,12 @@ namespace NitroxModel.DataStructures
         /// <summary>
         ///     True if entity isn't static (e.g. welded to world).
         /// </summary>
-        public bool ChangesPosition { get; }
-        public NitroxId Id { get; }
-        public ushort PlayerId { get; }
-        public SimulationLockType LockType { get; }
+        public bool ChangesPosition { get; set; }
+        public NitroxId Id { get; set; }
+        public ushort PlayerId { get; set; }
+        public SimulationLockType LockType { get; set; }
+
+        public SimulatedEntity() { }
 
         public SimulatedEntity(NitroxId id, ushort playerId, bool changesPosition, SimulationLockType lockType)
         {

@@ -7,9 +7,9 @@ namespace NitroxModel.Packets
     [Serializable]
     public class ConstructorBeginCrafting : Packet
     {
-        public VehicleModel VehicleModel { get; }
-        public NitroxId ConstructorId { get; }
-        public float Duration { get; }
+        public VehicleModel VehicleModel { get; set; }
+        public NitroxId ConstructorId { get; set; }
+        public float Duration { get; set; }
 
         public ConstructorBeginCrafting() { }
 

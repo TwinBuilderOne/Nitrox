@@ -12,29 +12,29 @@ namespace NitroxModel.Packets
     [Serializable]
     public class InitialPlayerSync : Packet
     {
-        public NitroxId AssignedEscapePodId;
-        public List<EscapePodModel> EscapePodsData { get; }
-        public List<EquippedItemData> EquippedItems { get; }
-        public List<EquippedItemData> Modules { get; }
-        public List<BasePiece> BasePieces { get; }
-        public List<VehicleModel> Vehicles { get; }
-        public List<ItemData> InventoryItems { get; }
-        public List<ItemData> StorageSlotItems { get; }
-        public List<NitroxTechType> UsedItems { get; }
-        public List<string> QuickSlotsBinding { get; }
-        public NitroxId PlayerGameObjectId { get; }
-        public bool FirstTimeConnecting { get; }
-        public InitialPDAData PDAData { get; }
-        public InitialStoryGoalData StoryGoalData { get; }
-        public HashSet<string> CompletedGoals { get; }
-        public NitroxVector3 PlayerSpawnData { get; }
-        public Optional<NitroxId> PlayerSubRootId { get; }
-        public PlayerStatsData PlayerStatsData { get; }
-        public List<InitialRemotePlayerData> RemotePlayerData { get; }
-        public List<Entity> GlobalRootEntities { get; }
-        public List<NitroxId> InitialSimulationOwnerships { get; }
-        public ServerGameMode GameMode { get; }
-        public Perms Permissions { get; }
+        public NitroxId AssignedEscapePodId { get; set; }
+        public List<EscapePodModel> EscapePodsData { get; set; }
+        public List<EquippedItemData> EquippedItems { get; set; }
+        public List<EquippedItemData> Modules { get; set; }
+        public List<BasePiece> BasePieces { get; set; }
+        public List<VehicleModel> Vehicles { get; set; }
+        public List<ItemData> InventoryItems { get; set; }
+        public List<ItemData> StorageSlotItems { get; set; }
+        public List<NitroxTechType> UsedItems { get; set; }
+        public List<string> QuickSlotsBinding { get; set; }
+        public NitroxId PlayerGameObjectId { get; set; }
+        public bool FirstTimeConnecting { get; set; }
+        public InitialPDAData PDAData { get; set; }
+        public InitialStoryGoalData StoryGoalData { get; set; }
+        public HashSet<string> CompletedGoals { get; set; }
+        public NitroxVector3 PlayerSpawnData { get; set; }
+        public Optional<NitroxId> PlayerSubRootId { get; set; }
+        public PlayerStatsData PlayerStatsData { get; set; }
+        public List<InitialRemotePlayerData> RemotePlayerData { get; set; }
+        public List<Entity> GlobalRootEntities { get; set; }
+        public List<NitroxId> InitialSimulationOwnerships { get; set; }
+        public ServerGameMode GameMode { get; set; }
+        public Perms Permissions { get; set; }
 
         public InitialPlayerSync() { }
 

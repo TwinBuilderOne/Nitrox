@@ -6,7 +6,7 @@ namespace NitroxModel.Packets
     [Serializable]
     public class PDAEntryRemove : Packet
     {
-        public NitroxTechType TechType { get; }
+        public NitroxTechType TechType { get; set; }
 
         public PDAEntryRemove() { }
 

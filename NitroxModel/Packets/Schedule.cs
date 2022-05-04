@@ -5,9 +5,9 @@ namespace NitroxModel.Packets
     [Serializable]
     public class Schedule : Packet
     {
-        public float TimeExecute { get; }
-        public string Key { get; }
-        public string Type { get; }
+        public float TimeExecute { get; set; }
+        public string Key { get; set; }
+        public string Type { get; set; }
 
         public Schedule() { }
 

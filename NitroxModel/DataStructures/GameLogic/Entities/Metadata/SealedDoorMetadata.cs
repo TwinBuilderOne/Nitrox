@@ -8,14 +8,14 @@ namespace NitroxModel.DataStructures.GameLogic.Entities.Metadata
     public class SealedDoorMetadata : EntityMetadata
     {
         [ProtoMember(1)]
-        public bool Sealed { get; }
+        public bool Sealed { get; set; }
 
         [ProtoMember(2)]
-        public float OpenedAmount { get; }
+        public float OpenedAmount { get; set; }
 
-        protected SealedDoorMetadata()
+        public SealedDoorMetadata()
         {
-            //Constructor for serialization. Has to be "protected" for json serialization.
+            //Constructor for serialization.
         }
 
         public SealedDoorMetadata(bool Sealed, float OpenedAmount)

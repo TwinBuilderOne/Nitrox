@@ -6,10 +6,10 @@ namespace NitroxModel.Packets
     [Serializable]
     public class ModuleRemoved : Packet
     {
-        public NitroxId OwnerId { get; }
-        public string Slot { get; }
-        public NitroxId ItemId { get; }
-        public bool PlayerModule { get; }
+        public NitroxId OwnerId { get; set; }
+        public string Slot { get; set; }
+        public NitroxId ItemId { get; set; }
+        public bool PlayerModule { get; set; }
 
         public ModuleRemoved() { }
 

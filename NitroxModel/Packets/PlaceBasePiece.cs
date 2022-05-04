@@ -6,7 +6,7 @@ namespace NitroxModel.Packets
     [Serializable]
     public class PlaceBasePiece : Packet
     {
-        public BasePiece BasePiece { get; }
+        public BasePiece BasePiece { get; set; }
 
         public PlaceBasePiece() { }
 

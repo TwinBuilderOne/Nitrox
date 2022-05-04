@@ -6,7 +6,7 @@ namespace NitroxModel.Packets
     [Serializable]
     public class EscapePodRadioRepair : Packet
     {
-        public NitroxId Id { get; }
+        public NitroxId Id { get; set; }
 
         public EscapePodRadioRepair() { }
 
