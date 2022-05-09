@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using NitroxClient.Communication.Abstract;
 using NitroxClient.Communication.MultiplayerSession.ConnectionState;
 using NitroxClient.GameLogic;
@@ -14,6 +15,13 @@ namespace NitroxClient.Communication.MultiplayerSession
 {
     public class MultiplayerSessionManager : IMultiplayerSession, IMultiplayerSessionConnectionContext
     {
+        private static readonly Task initSerializerTask;
+
+        static MultiplayerSessionManager()
+        {
+            initSerializerTask = Task.Factory.StartNew(() => Packet.InitSerializer());
+        }
+
         private readonly HashSet<Type> suppressedPacketsTypes = new HashSet<Type>();
 
         public IClient Client { get; }
@@ -45,6 +53,7 @@ namespace NitroxClient.Communication.MultiplayerSession
         {
             IpAddress = ipAddress;
             ServerPort = port;
+            initSerializerTask.Wait();
             CurrentState.NegotiateReservation(this);
         }
 

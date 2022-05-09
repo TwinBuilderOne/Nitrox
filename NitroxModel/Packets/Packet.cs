@@ -15,6 +15,12 @@ namespace NitroxModel.Packets
         private static readonly Dictionary<Type, PropertyInfo[]> cachedPropertiesByType = new();
         private static readonly StringBuilder toStringBuilder = new();
 
+        public static void InitSerializer()
+        {
+            // This will initialize the processor for Wrapper which will initialize all the others
+            _ = BinaryConverter.Serialize(new Wrapper(null));
+        }
+
         static Packet()
         {
             static IEnumerable<Type> FindTypesInModelAssemblies()
