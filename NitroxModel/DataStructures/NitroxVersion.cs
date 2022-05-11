@@ -5,7 +5,7 @@ namespace NitroxModel.DataStructures;
 /// <summary>
 ///     Serializable version of <see cref="Version" />.
 /// </summary>
-public struct NitroxVersion : IComparable<NitroxVersion>
+public readonly struct NitroxVersion : IComparable<NitroxVersion>
 {
     public int Major { get; init; }
 
