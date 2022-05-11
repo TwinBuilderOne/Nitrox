@@ -2,15 +2,26 @@
 
 namespace NitroxModel.DataStructures;
 
-// Serializable version of System.Version
+/// <summary>
+///     Serializable version of <see cref="Version" />.
+/// </summary>
 public struct NitroxVersion : IComparable<NitroxVersion>
 {
-    public int Major { get; set; }
+    public int Major { get; init; }
 
-    public int Minor { get; set; }
+    public int Minor { get; init; }
 
     public NitroxVersion(int major, int minor)
     {
+        if (major < 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(major));
+        }
+        if (minor < 0)
+        {
+            throw new ArgumentOutOfRangeException(nameof(minor));
+        }
+
         Major = major;
         Minor = minor;
     }
@@ -19,22 +30,11 @@ public struct NitroxVersion : IComparable<NitroxVersion>
     {
         if (Major != other.Major)
         {
-            if (Major > other.Major)
-            {
-                return 1;
-            }
-
-            return -1;
+            return Major > other.Major ? 1 : -1;
         }
-
         if (Minor != other.Minor)
         {
-            if (Minor > other.Minor)
-            {
-                return 1;
-            }
-
-            return -1;
+            return Minor > other.Minor ? 1 : -1;
         }
 
         return 0;
