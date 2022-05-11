@@ -8,11 +8,11 @@ namespace NitroxModel.DataStructures.GameLogic.Buildings.Rotation
     public abstract class RotationMetadata
     {
         [ProtoIgnore]
-        public Type GhostType { get; set; }
+        public string GhostType { get; set; }
 
         public RotationMetadata(Type ghostType)
         {
-            GhostType = ghostType;
+            GhostType = ghostType.ToString();
         }
     }
 }

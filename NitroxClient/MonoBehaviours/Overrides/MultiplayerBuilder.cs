@@ -217,7 +217,7 @@ namespace NitroxClient.MonoBehaviours.Overrides
             {
                 Log.Error("Was unable to apply rotation metadata - no BaseGhost found");
             }
-            else if (component.GetType() != rotationMetadata.GhostType)
+            else if (component.GetType().ToString() != rotationMetadata.GhostType)
             {
                 Log.Error("Was unable to apply rotation metadata - " + component.GetType() + " did not match " + rotationMetadata.GhostType);
             }
@@ -257,7 +257,7 @@ namespace NitroxClient.MonoBehaviours.Overrides
 
                 Base.Face face = new(baseModuleRotationMetadata.Cell.ToUnity(), (Base.Direction)baseModuleRotationMetadata.Direction);
                 faceGhost.anchoredFace = face;
-                
+
                 Base.FaceType faceType = (Base.FaceType)baseModuleRotationMetadata.FaceType;
                 faceGhost.ghostBase.SetFace(face, faceType);
 
