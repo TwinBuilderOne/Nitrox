@@ -18,7 +18,7 @@ namespace NitroxModel.Packets
         public static void InitSerializer()
         {
             // This will initialize the processor for Wrapper which will initialize all the others
-            _ = BinaryConverter.Serialize(new Wrapper(null));
+            _ = BinaryConverter.Serialize(new Wrapper());
         }
 
         static Packet()
@@ -110,17 +110,18 @@ namespace NitroxModel.Packets
             return toStringBuilder.ToString();
         }
 
-        // Wrapper class used to serialize packets in BinaryPack
-        // We cannot serialize Packets directly because
-        // 1) We will not know what type to deserialize to and
-        // 2) The root object must use ObjectProcessor<T> so it can't be abstract
-        // This class solves both problems and only adds a single byte to the data
-        public class Wrapper
+        /// <summary>
+        ///     Wrapper which is used to serialize packets in BinaryPack.
+        ///     We cannot serialize Packets directly because
+        ///     <p>
+        ///     1) We will not know what type to deserialize to and
+        ///     2) The root object must have a callable constructor so it can't be abstract
+        ///     </p>
+        ///     This class solves both problems and only adds a single byte to the data.
+        /// </summary>
+        public readonly struct Wrapper
         {
-            public Packet Packet { get; set; }
-
-            public Wrapper()
-            { }
+            public Packet Packet { get; init; } = null;
 
             public Wrapper(Packet packet)
             {
