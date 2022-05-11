@@ -117,7 +117,7 @@ namespace NitroxModel.Packets
         ///     1) We will not know what type to deserialize to and
         ///     2) The root object must have a callable constructor so it can't be abstract
         ///     </p>
-        ///     This class solves both problems and only adds a single byte to the data.
+        ///     This type solves both problems and only adds a single byte to the data.
         /// </summary>
         public readonly struct Wrapper
         {
