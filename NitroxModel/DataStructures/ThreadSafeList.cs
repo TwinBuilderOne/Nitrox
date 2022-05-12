@@ -19,7 +19,7 @@ namespace NitroxModel.DataStructures
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         [ProtoMember(1)]
-        private readonly IList<T> list;
+        public List<T> list;
 
         public T this[int i]
         {
@@ -67,7 +67,7 @@ namespace NitroxModel.DataStructures
             list = new List<T>(values);
         }
 
-        public ThreadSafeList(IList<T> list, bool createCopy = true)
+        public ThreadSafeList(List<T> list, bool createCopy = true)
         {
             this.list = createCopy ? CreateCopy(list) : list;
         }
@@ -128,7 +128,7 @@ namespace NitroxModel.DataStructures
                 {
                     return false;
                 }
-                
+
                 list.RemoveAt(index);
                 return true;
             }
@@ -235,7 +235,7 @@ namespace NitroxModel.DataStructures
             }
         }
 
-        private IList<T> CreateCopy(IEnumerable<T> data)
+        private List<T> CreateCopy(IEnumerable<T> data)
         {
             return new List<T>(data);
         }
