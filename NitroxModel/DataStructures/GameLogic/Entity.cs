@@ -78,7 +78,7 @@ namespace NitroxModel.DataStructures.GameLogic
 
         public Entity(NitroxVector3 localPosition, NitroxQuaternion localRotation, NitroxVector3 scale, NitroxTechType techType, int level, string classId, bool spawnedByServer, NitroxId id, int? existingGameObjectChildIndex, Entity parentEntity = null)
         {
-            Transform = new NitroxTransform(localPosition, localRotation, scale, this);
+            Transform = new NitroxTransform(localPosition, localRotation, scale);
             TechType = techType;
             Id = id;
             Level = level;
@@ -99,7 +99,7 @@ namespace NitroxModel.DataStructures.GameLogic
 
         public Entity(NitroxVector3 localPosition, NitroxQuaternion localRotation, NitroxVector3 scale, NitroxTechType techType, int level, string classId, bool spawnedByServer, NitroxId waterParkId, byte[] serializedGameObject, bool existsInGlobalRoot, NitroxId id)
         {
-            Transform = new NitroxTransform(localPosition, localRotation, scale, this);
+            Transform = new NitroxTransform(localPosition, localRotation, scale);
             TechType = techType;
             Id = id;
             Level = level;
@@ -114,18 +114,6 @@ namespace NitroxModel.DataStructures.GameLogic
         public override string ToString()
         {
             return "[Entity Transform: " + Transform + " TechType: " + TechType + " Id: " + Id + " Level: " + Level + " classId: " + ClassId + " ChildEntities: " + string.Join(",\n ", ChildEntities) + " SpawnedByServer: " + SpawnedByServer + " ExistingGameObjectChildIndex: " + ExistingGameObjectChildIndex + "]";
-        }
-
-        [ProtoAfterDeserialization]
-        private void ProtoAfterDeserialization()
-        {
-            Transform.Entity = this;
-        }
-
-        [OnDeserialized]
-        private void JsonAfterDeserialization(StreamingContext context)
-        {
-            ProtoAfterDeserialization();
         }
     }
 }

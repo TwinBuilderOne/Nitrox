@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Numerics;
 using BinaryPack.Attributes;
-using NitroxModel.DataStructures.GameLogic;
 using NitroxModel.Helper;
 using ProtoBufNet;
 
@@ -32,9 +31,7 @@ namespace NitroxModel.DataStructures.Unity
 
         public NitroxTransform Parent;
 
-        [IgnoredMember] // Would cause infinite loop if serialized
-        public Entity Entity;
-
+        [IgnoredMember]
         public NitroxVector3 Position
         {
             get
@@ -48,6 +45,8 @@ namespace NitroxModel.DataStructures.Unity
                 LocalPosition = (NitroxVector3)matrix.Translation;
             }
         }
+
+        [IgnoredMember]
         public NitroxQuaternion Rotation
         {
             get
@@ -88,12 +87,11 @@ namespace NitroxModel.DataStructures.Unity
         /// <summary>
         /// NitroxTransform is always attached to an Entity
         /// </summary>
-        public NitroxTransform(NitroxVector3 localPosition, NitroxQuaternion localRotation, NitroxVector3 scale, Entity entity)
+        public NitroxTransform(NitroxVector3 localPosition, NitroxQuaternion localRotation, NitroxVector3 scale)
         {
             LocalPosition = localPosition;
             LocalRotation = localRotation;
             LocalScale = scale;
-            Entity = entity;
         }
 
         public override string ToString()
