@@ -145,11 +145,14 @@ namespace NitroxTest.Model.Packets
                     Assert.Fail($"Type {t} does not have a public parameterless constructor");
                 }
 
+                bool empty = true;
+
                 foreach (PropertyInfo property in t.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
                 .Where(p => p.CanRead && p.GetCustomAttribute<IgnoredMemberAttribute>() == null && p.GetIndexParameters().Length == 0))
                 {
-                    if (property.GetMethod.IsPublic)
+                    if (property.GetMethod.IsPublic && property.CanWrite)
                     {
+                        empty = false;
                         CheckType(property.PropertyType);
                     }
 
@@ -183,6 +186,7 @@ namespace NitroxTest.Model.Packets
                 {
                     if (field.IsPublic)
                     {
+                        empty = false;
                         CheckType(field.FieldType);
                     }
 
@@ -203,6 +207,11 @@ namespace NitroxTest.Model.Packets
                             }
                         }
                     }
+                }
+
+                if (empty)
+                {
+                    Console.WriteLine($"Type {t} has no serializable members.");
                 }
             }
 
