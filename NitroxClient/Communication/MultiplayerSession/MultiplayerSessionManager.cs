@@ -61,9 +61,9 @@ namespace NitroxClient.Communication.MultiplayerSession
         {
             SessionPolicy = policy;
             NitroxConsole.DisableConsole = SessionPolicy.DisableConsole;
-            Version localVersion = typeof(Extensions).Assembly.GetName().Version;
-            NitroxVersion nitroxVersion = new(localVersion.Major, localVersion.Minor);
-            switch (nitroxVersion.CompareTo(SessionPolicy.NitroxVersionAllowed))
+            Version localVersion = NitroxEnvironment.Version;
+            localVersion = new Version(localVersion.Major, localVersion.Minor);
+            switch (localVersion.CompareTo(SessionPolicy.NitroxVersionAllowed))
             {
                 case -1:
                     Log.InGame($"Your Nitrox installation is out of date. Server: {SessionPolicy.NitroxVersionAllowed}, Yours: {localVersion}.");
