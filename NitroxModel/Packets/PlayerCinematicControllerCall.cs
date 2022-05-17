@@ -7,10 +7,12 @@ namespace NitroxModel.Packets;
 public class PlayerCinematicControllerCall : Packet
 {
     public ushort PlayerId { get; set; }
-    public NitroxId ControllerID { get; }
-    public int ControllerNameHash { get; }
-    public string Key { get; }
-    public bool StartPlaying { get; }
+    public NitroxId ControllerID { get; set; }
+    public int ControllerNameHash { get; set; }
+    public string Key { get; set; }
+    public bool StartPlaying { get; set; }
+
+    public PlayerCinematicControllerCall() { }
 
     public PlayerCinematicControllerCall(ushort playerId, NitroxId controllerID, int controllerNameHash, string key, bool startPlaying)
     {
