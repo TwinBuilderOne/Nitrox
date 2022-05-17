@@ -46,10 +46,23 @@ namespace NitroxModel.Packets
 
             foreach (Type type in FindUnionBaseTypes())
             {
-                BinaryConverter.RegisterUnion(type, FindTypesInModelAssemblies().Where(t => type.IsAssignableFrom(t)
-                                                                                            && !t.IsAbstract && !t.IsInterface)
-                                                                                .OrderBy(t => t.FullName)
-                                                                                .ToArray());
+                BinaryConverter.RegisterUnion(type, FindTypesInModelAssemblies()
+                    .Where(t => type.IsAssignableFrom(t) && !t.IsAbstract && !t.IsInterface)
+                    .OrderByDescending(t =>
+                    {
+                        Type current = t;
+                        int levels = 0;
+
+                        while (current != type && current != null)
+                        {
+                            current = current.BaseType;
+                            levels++;
+                        }
+
+                        return levels;
+                    })
+                    .ThenBy(t => t.FullName)
+                    .ToArray());
             }
         }
 

@@ -19,7 +19,10 @@ namespace NitroxModel.DataStructures.GameLogic
         [ProtoMember(3)]
         public int Level { get; set; }
 
-        private static IMap map = NitroxServiceLocator.LocateService<IMap>();
+        private static IMap map
+        {
+            get => NitroxServiceLocator.LocateService<IMap>();
+        }
         private NitroxInt3 BatchPosition => BatchId * map.BatchSize - map.BatchDimensionCenter;
         public NitroxInt3 Position => BatchPosition + CellId * GetCellSize();
 

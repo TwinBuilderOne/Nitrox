@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.CompilerServices;
-using System.Runtime.Serialization;
 using BinaryPack.Attributes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NitroxModel.Packets;
@@ -21,6 +20,17 @@ namespace NitroxTest.Model.Packets
 
         public IEnumerable<Type> PacketTypes =>
             ModelTypes.Where(p => typeof(Packet).IsAssignableFrom(p) && p.IsClass && !p.IsAbstract);
+
+        public IEnumerable<FieldInfo> GetSerializedFields(Type type, bool nonPublic) =>
+            type.GetFields(BindingFlags.Instance | BindingFlags.Public | (nonPublic ? BindingFlags.NonPublic : BindingFlags.Default))
+            .Where(f => f.GetCustomAttribute<IgnoredMemberAttribute>() == null
+                && f.GetCustomAttribute<CompilerGeneratedAttribute>() == null);
+
+        public IEnumerable<PropertyInfo> GetSerializedProperties(Type type, bool nonPublic) =>
+            type.GetProperties(BindingFlags.Instance | BindingFlags.Public
+                | (nonPublic ? BindingFlags.NonPublic : BindingFlags.Default))
+            .Where(p => p.CanRead && p.CanWrite && p.GetCustomAttribute<IgnoredMemberAttribute>() == null
+                && p.GetIndexParameters().Length == 0);
 
         // A lot of this is taken from BinaryPack
         [TestMethod]
@@ -147,8 +157,7 @@ namespace NitroxTest.Model.Packets
 
                 bool empty = true;
 
-                foreach (PropertyInfo property in t.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
-                .Where(p => p.CanRead && p.GetCustomAttribute<IgnoredMemberAttribute>() == null && p.GetIndexParameters().Length == 0))
+                foreach (PropertyInfo property in GetSerializedProperties(t, true))
                 {
                     if (property.GetMethod.IsPublic && property.CanWrite)
                     {
@@ -180,9 +189,7 @@ namespace NitroxTest.Model.Packets
                     }
                 }
 
-                foreach (FieldInfo field in t.GetFields(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic)
-                .Where(f => f.GetCustomAttribute<IgnoredMemberAttribute>() == null
-                    && f.GetCustomAttribute<CompilerGeneratedAttribute>() == null))
+                foreach (FieldInfo field in GetSerializedFields(t, false))
                 {
                     if (field.IsPublic)
                     {
@@ -224,22 +231,191 @@ namespace NitroxTest.Model.Packets
         [TestMethod]
         public void PacketSerializationTest()
         {
+            IEnumerable<object> DefaultObjects(Type type, int[] abstractIndices = null)
+            {
+                IEnumerable<Type> Subclasses(Type type) =>
+                    ModelTypes.Where(t => t.IsSubclassOf(type) && t.IsClass && !t.IsAbstract);
+
+                if (abstractIndices == null)
+                {
+                    abstractIndices = Array.Empty<int>();
+                }
+
+                if (type.IsArray)
+                {
+                    object[] defaultObjects = DefaultObjects(type.GetElementType()).ToArray();
+                    Array array = Array.CreateInstance(type.GetElementType(), defaultObjects.Length);
+
+                    for (int i = 0; i < defaultObjects.Length; i++)
+                    {
+                        array.SetValue(defaultObjects[i], i);
+                    }
+
+                    yield return array;
+                    yield break;
+                }
+
+                if (type == typeof(string))
+                {
+                    yield return string.Empty;
+                    yield break;
+                }
+
+                object result = Activator.CreateInstance(type);
+
+                int abstractTypes = 0;
+
+                foreach (FieldInfo field in GetSerializedFields(type, false))
+                {
+                    if (field.FieldType == type)
+                    {
+                        continue;
+                    }
+
+                    if (field.FieldType.IsAbstract)
+                    {
+                        Type[] subclasses = Subclasses(type).ToArray();
+
+                        if (abstractIndices.Length > abstractTypes)
+                        {
+                            field.SetValue(result, subclasses[abstractIndices[abstractTypes]]);
+                        }
+                        else
+                        {
+                            for (int i = 0; i < subclasses.Length; i++)
+                            {
+                                yield return DefaultObjects(type, abstractIndices.Append(i).ToArray());
+                            }
+                        }
+
+                        abstractTypes++;
+                    }
+                    else
+                    {
+                        field.SetValue(result, DefaultObjects(field.FieldType).First());
+                    }
+                }
+
+                foreach (PropertyInfo property in GetSerializedProperties(type, false))
+                {
+                    if (property.PropertyType == type)
+                    {
+                        continue;
+                    }
+
+                    if (property.PropertyType.IsAbstract)
+                    {
+                        Type[] subclasses = Subclasses(type).ToArray();
+
+                        if (abstractIndices.Length > abstractTypes)
+                        {
+                            property.SetValue(result, subclasses[abstractIndices[abstractTypes]]);
+                        }
+                        else
+                        {
+                            for (int i = 0; i < subclasses.Length; i++)
+                            {
+                                yield return DefaultObjects(type, abstractIndices.Append(i).ToArray());
+                            }
+                        }
+
+                        abstractTypes++;
+                    }
+                    else
+                    {
+                        property.SetValue(result, DefaultObjects(property.PropertyType).First());
+                    }
+                }
+
+                yield return result;
+            }
+
+            void TestEqual(object first, object second)
+            {
+                if (first == null && second == null)
+                {
+                    return;
+                }
+
+                if (first == null || second == null)
+                {
+                    Assert.Fail("One value is null and the other is not");
+                }
+
+                if (first.GetType() != second.GetType())
+                {
+                    Assert.Fail($"{first} and {second} do not have the same type");
+                }
+
+                Type t = first.GetType();
+
+                switch (t)
+                {
+                    case Type when t.IsPrimitive || t.IsEnum || t == typeof(decimal) || t == typeof(string):
+                        if (!(bool)(t.GetMethod("op_Equality")?.Invoke(null, new object[] { first, second })
+                            ?? t.GetMethod(nameof(object.Equals), new Type[] { typeof(object) })
+                            .Invoke(first, new object[] { second })))
+                        {
+                            Assert.Fail($"The equality operator returned false for {first} and {second}");
+                        }
+
+                        break;
+
+                    case Type when t.GetInterfaces().Contains(typeof(IEnumerable<>)):
+                        MethodInfo toArray = typeof(Enumerable).GetMethod(nameof(Enumerable.ToArray));
+
+                        IEnumerator firstEnumerator = ((Array)toArray.Invoke(first, null)).GetEnumerator();
+                        IEnumerator secondEnumerator = ((Array)toArray.Invoke(second, null)).GetEnumerator();
+
+                        while (firstEnumerator.MoveNext())
+                        {
+                            if (!secondEnumerator.MoveNext())
+                            {
+                                Assert.Fail($"{second} has fewer items than {first}");
+                            }
+
+                            if (firstEnumerator.Current != secondEnumerator.Current)
+                            {
+                                Assert.Fail($"Item {firstEnumerator.Current} of {first} is not equal to item {secondEnumerator.Current} of {second}");
+                            }
+                        }
+
+                        if (secondEnumerator.MoveNext())
+                        {
+                            Assert.Fail($"{first} has fewer items than {second}");
+                        }
+
+                        break;
+
+                    default:
+                        foreach (FieldInfo field in GetSerializedFields(t, false))
+                        {
+                            TestEqual(field.GetValue(first), field.GetValue(second));
+                        }
+
+                        foreach (PropertyInfo property in GetSerializedProperties(t, false))
+                        {
+                            TestEqual(property.GetValue(first), property.GetValue(second));
+                        }
+
+                        break;
+                }
+            }
+
             Type testedType = null;
             List<Packet> packets = new();
             foreach (Type type in PacketTypes)
             {
                 testedType = type;
-                packets.Add((Packet)FormatterServices.GetUninitializedObject(type));
+                packets.AddRange(DefaultObjects(type).Select(obj => (Packet)obj));
             }
 
             foreach (Packet packet in packets)
             {
                 testedType = packet.GetType();
 
-                Packet.Deserialize(packet.Serialize()); // Consider testing for equality? Would be annoying to implement though
+                TestEqual(packet, Packet.Deserialize(packet.Serialize()));
             }
         }
     }
-
-
 }
