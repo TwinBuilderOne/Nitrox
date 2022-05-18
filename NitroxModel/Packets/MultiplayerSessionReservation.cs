@@ -10,7 +10,7 @@ namespace NitroxModel.Packets
         public ushort PlayerId { get; set; }
         public string ReservationKey { get; set; }
 
-        public MultiplayerSessionReservation() : base("") { }
+        public MultiplayerSessionReservation() : base(string.Empty) { }
 
         public MultiplayerSessionReservation(string correlationId, MultiplayerSessionReservationState reservationState) : base(correlationId)
         {

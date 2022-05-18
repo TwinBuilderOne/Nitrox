@@ -9,7 +9,7 @@ namespace NitroxModel.Packets
         public PlayerSettings PlayerSettings { get; set; }
         public AuthenticationContext AuthenticationContext { get; set; }
 
-        public MultiplayerSessionReservationRequest() : base("") { }
+        public MultiplayerSessionReservationRequest() : base(string.Empty) { }
 
         public MultiplayerSessionReservationRequest(string reservationCorrelationId, PlayerSettings playerSettings, AuthenticationContext authenticationContext) : base(reservationCorrelationId)
         {

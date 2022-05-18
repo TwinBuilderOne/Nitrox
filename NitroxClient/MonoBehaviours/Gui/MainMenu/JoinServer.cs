@@ -216,7 +216,7 @@ namespace NitroxClient.MonoBehaviours.Gui.MainMenu
             }
             preferencesManager.SetPreference(serverIp, new PlayerPreference(playerName, colorPicker.currentColor));
 
-            AuthenticationContext authenticationContext = passwordEntered ? new AuthenticationContext(playerName, serverPassword) : new AuthenticationContext(playerName);
+            AuthenticationContext authenticationContext = new AuthenticationContext(playerName, passwordEntered ? serverPassword : null);
 
             multiplayerSession.RequestSessionReservation(new PlayerSettings(colorPicker.currentColor.ToDto()), authenticationContext);
         }

@@ -15,7 +15,7 @@ namespace NitroxModel.Packets
         public MultiplayerSessionAuthenticationAuthority AuthenticationAuthority { get; set; }
         public NitroxVersion NitroxVersionAllowed { get; set; }
 
-        public MultiplayerSessionPolicy() : base("") { }
+        public MultiplayerSessionPolicy() : base(string.Empty) { }
 
         public MultiplayerSessionPolicy(string correlationId, bool disableConsole, int maxConnections, bool requiresServerPassword) : base(correlationId)
         {

@@ -3,7 +3,7 @@
 namespace NitroxModel.DataStructures;
 
 /// <summary>
-///     Serializable version of <see cref="Version" />.
+///     Serializable version of <see cref="Version" /> with only major and minor properties.
 /// </summary>
 public readonly struct NitroxVersion : IComparable<NitroxVersion>
 {
