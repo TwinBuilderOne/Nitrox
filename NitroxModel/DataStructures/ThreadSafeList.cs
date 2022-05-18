@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using BinaryPack.Attributes;
 using NitroxModel.Helper;
 using ProtoBufNet;
 
@@ -19,7 +20,8 @@ namespace NitroxModel.DataStructures
 
         [DebuggerBrowsable(DebuggerBrowsableState.Never)]
         [ProtoMember(1)]
-        public List<T> list;
+        [SerializableMember]
+        private List<T> list;
 
         public T this[int i]
         {

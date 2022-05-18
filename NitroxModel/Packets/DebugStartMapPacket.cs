@@ -7,11 +7,11 @@ namespace NitroxModel.Packets
     [Serializable]
     public class DebugStartMapPacket : Packet
     {
-        public IList<NitroxVector3> StartPositions { get; set; }
+        public List<NitroxVector3> StartPositions { get; set; }
 
         public DebugStartMapPacket() { }
 
-        public DebugStartMapPacket(IList<NitroxVector3> startPositions)
+        public DebugStartMapPacket(List<NitroxVector3> startPositions)
         {
             StartPositions = startPositions;
         }
