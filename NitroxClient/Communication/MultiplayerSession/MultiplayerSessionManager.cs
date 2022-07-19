@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using NitroxClient.Communication.Abstract;
 using NitroxClient.Communication.MultiplayerSession.ConnectionState;
 using NitroxClient.GameLogic;
-using NitroxModel;
 using NitroxModel.DataStructures;
 using NitroxModel.Helper;
 using NitroxModel.MultiplayerSession;
@@ -151,7 +150,6 @@ namespace NitroxClient.Communication.MultiplayerSession
             if (sessionConnectionState.CurrentStage == MultiplayerSessionConnectionStage.SESSION_RESERVED)
             {
                 Log.PlayerName = username;
-                LANDiscoveryClient.EndSearching();
             }
         }
 
