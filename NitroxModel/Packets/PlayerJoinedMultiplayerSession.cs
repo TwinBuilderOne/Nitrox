@@ -10,10 +10,10 @@ namespace NitroxModel.Packets
     [Serializable]
     public class PlayerJoinedMultiplayerSession : Packet
     {
-        public PlayerContext PlayerContext { get; set; }
-        public Optional<NitroxId> SubRootId { get; set; }
-        public List<NitroxTechType> EquippedTechTypes { get; set; }
-        public List<ItemData> InventoryItems { get; set; }
+        public PlayerContext PlayerContext { get; }
+        public Optional<NitroxId> SubRootId { get; }
+        public List<NitroxTechType> EquippedTechTypes { get; }
+        public List<ItemData> InventoryItems { get; }
 
         public PlayerJoinedMultiplayerSession() { }
 

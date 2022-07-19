@@ -25,9 +25,9 @@ namespace NitroxModel_Subnautica.DataStructures.GameLogic.Buildings.Rotation
         [ProtoMember(4)]
         public NitroxInt3 Cell { get; set; }
 
-        public CorridorBuilderMetadata()
+        protected CorridorBuilderMetadata()
         {
-            // Constructor for serialization.
+            // Constructor for serialization. Has to be "protected" for json serialization.
         }
 
         public CorridorBuilderMetadata(NitroxVector3 position, int rotation, bool hasTargetBase, NitroxInt3 targetCell)

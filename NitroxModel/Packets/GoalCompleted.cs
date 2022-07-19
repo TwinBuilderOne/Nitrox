@@ -5,7 +5,7 @@ namespace NitroxModel.Packets;
 [Serializable]
 public class GoalCompleted : Packet
 {
-    public string CompletedGoal { get; set; }
+    public string CompletedGoal { get; }
 
     public GoalCompleted() { }
 

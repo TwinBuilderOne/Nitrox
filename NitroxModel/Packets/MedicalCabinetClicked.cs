@@ -6,10 +6,10 @@ namespace NitroxModel.Packets
     [Serializable]
     public class MedicalCabinetClicked : Packet
     {
-        public NitroxId Id { get; set; }
-        public bool DoorOpen { get; set; }
-        public bool HasMedKit { get; set; }
-        public float NextSpawnTime { get; set; }
+        public NitroxId Id { get; }
+        public bool DoorOpen { get; }
+        public bool HasMedKit { get; }
+        public float NextSpawnTime { get; }
 
         public MedicalCabinetClicked() { }
 

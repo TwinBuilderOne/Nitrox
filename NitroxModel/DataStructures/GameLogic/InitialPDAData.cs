@@ -15,9 +15,9 @@ namespace NitroxModel.DataStructures.GameLogic
         public List<PDALogEntry> PDALogEntries { get; set; }
         public List<PDAProgressEntry> CachedProgress { get; set; }
 
-        public InitialPDAData()
+        protected InitialPDAData()
         {
-            // Constructor for serialization.
+            //Constructor for serialization. Has to be "protected" for json serialization.
         }
 
         public InitialPDAData(List<NitroxTechType> unlockedTechTypes, List<NitroxTechType> knownTechTypes, List<NitroxTechType> analyzedTechTypes, List<string> encyclopediaEntries, List<PDAEntry> partiallyUnlockedTechTypes, List<PDALogEntry> pdaLogEntries, List<PDAProgressEntry> cachedProgress)

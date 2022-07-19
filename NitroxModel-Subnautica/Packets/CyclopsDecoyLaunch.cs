@@ -7,7 +7,7 @@ namespace NitroxModel_Subnautica.Packets
     [Serializable]
     public class CyclopsDecoyLaunch : Packet
     {
-        public NitroxId Id { get; set; }
+        public NitroxId Id { get; }
 
         public CyclopsDecoyLaunch() { }
 

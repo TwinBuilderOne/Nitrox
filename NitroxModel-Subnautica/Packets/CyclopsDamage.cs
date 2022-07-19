@@ -13,13 +13,13 @@ namespace NitroxModel_Subnautica.Packets
     [Serializable]
     public class CyclopsDamage : Packet
     {
-        public NitroxId Id { get; set; }
-        public float SubHealth { get; set; }
-        public float DamageManagerHealth { get; set; }
-        public float SubFireHealth { get; set; }
-        public int[] DamagePointIndexes { get; set; }
-        public CyclopsFireData[] RoomFires { get; set; }
-        public CyclopsDamageInfoData DamageInfo { get; set; }
+        public NitroxId Id { get; }
+        public float SubHealth { get; }
+        public float DamageManagerHealth { get; }
+        public float SubFireHealth { get; }
+        public int[] DamagePointIndexes { get; }
+        public CyclopsFireData[] RoomFires { get; }
+        public CyclopsDamageInfoData DamageInfo { get; }
 
         public CyclopsDamage() { }
 

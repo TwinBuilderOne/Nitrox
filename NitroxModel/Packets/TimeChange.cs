@@ -5,8 +5,8 @@ namespace NitroxModel.Packets
     [Serializable]
     public class TimeChange : Packet
     {
-        public double CurrentTime { get; set; }
-        public bool InitialSync { get; set; }
+        public double CurrentTime { get; }
+        public bool InitialSync { get; }
 
         public TimeChange() { }
 

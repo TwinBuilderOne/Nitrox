@@ -6,11 +6,11 @@ namespace NitroxModel.Packets
     [Serializable]
     public class PlayFMODAsset : Packet
     {
-        public string AssetPath { get; set; }
-        public NitroxVector3 Position { get; set; }
+        public string AssetPath { get; }
+        public NitroxVector3 Position { get; }
         public float Volume { get; set; }
         public float Radius { get; set; }
-        public bool IsGlobal { get; set; }
+        public bool IsGlobal { get; }
 
         public PlayFMODAsset() { }
 

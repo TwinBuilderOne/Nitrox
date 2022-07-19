@@ -6,8 +6,8 @@ namespace NitroxModel.Packets
     [Serializable]
     public class RemotePlayerEquipmentRemoved : Packet
     {
-        public ushort PlayerId { get; set; }
-        public NitroxTechType TechType { get; set; }
+        public ushort PlayerId { get; }
+        public NitroxTechType TechType { get; }
 
         public RemotePlayerEquipmentRemoved() { }
 

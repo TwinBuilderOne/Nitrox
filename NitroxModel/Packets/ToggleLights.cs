@@ -6,8 +6,8 @@ namespace NitroxModel.Packets
     [Serializable]
     public class ToggleLights : Packet
     {
-        public NitroxId Id { get; set; }
-        public bool IsOn { get; set; }
+        public NitroxId Id { get; }
+        public bool IsOn { get; }
 
         public ToggleLights() { }
 

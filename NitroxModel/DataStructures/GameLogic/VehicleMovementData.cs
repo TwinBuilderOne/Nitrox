@@ -9,38 +9,38 @@ namespace NitroxModel.DataStructures.GameLogic
     public class VehicleMovementData
     {
         [ProtoMember(1)]
-        public NitroxTechType TechType { get; set; }
+        public NitroxTechType TechType { get; }
 
         [ProtoMember(2)]
         public NitroxId Id { get; set; }
 
         [ProtoMember(3)]
-        public NitroxVector3 Position { get; set; }
+        public NitroxVector3 Position { get; }
 
         [ProtoMember(4)]
-        public NitroxQuaternion Rotation { get; set; }
+        public NitroxQuaternion Rotation { get; }
 
         [ProtoMember(5)]
-        public NitroxVector3 Velocity { get; set; }
+        public NitroxVector3 Velocity { get; }
 
         [ProtoMember(6)]
-        public NitroxVector3 AngularVelocity { get; set; }
+        public NitroxVector3 AngularVelocity { get; }
 
         [ProtoMember(7)]
-        public float SteeringWheelYaw { get; set; }
+        public float SteeringWheelYaw { get; }
 
         [ProtoMember(8)]
-        public float SteeringWheelPitch { get; set; }
+        public float SteeringWheelPitch { get; }
 
         [ProtoMember(9)]
-        public bool AppliedThrottle { get; set; }
+        public bool AppliedThrottle { get; }
 
         [ProtoMember(10)]
         public NitroxVector3? DriverPosition { get; set; }
 
-        public VehicleMovementData()
+        protected VehicleMovementData()
         {
-            // Constructor for serialization.
+            // Constructor for serialization. Has to be "protected" for json serialization.
         }
 
         public VehicleMovementData(NitroxTechType techType, NitroxId id, NitroxVector3 position, NitroxQuaternion rotation, NitroxVector3 velocity, NitroxVector3 angularVelocity, float steeringWheelYaw, float steeringWheelPitch, bool appliedThrottle)

@@ -6,13 +6,11 @@ namespace NitroxModel.MultiplayerSession
     [Serializable]
     public class PlayerContext
     {
-        public string PlayerName { get; set; }
-        public ushort PlayerId { get; set; }
-        public NitroxId PlayerNitroxId { get; set; }
-        public bool WasBrandNewPlayer { get; set; }
-        public PlayerSettings PlayerSettings { get; set; }
-
-        public PlayerContext() { }
+        public string PlayerName { get; }
+        public ushort PlayerId { get; }
+        public NitroxId PlayerNitroxId { get; }
+        public bool WasBrandNewPlayer { get; }
+        public PlayerSettings PlayerSettings { get; }
 
         public PlayerContext(string playerName, ushort playerId, NitroxId playerNitroxId, bool wasBrandNewPlayer, PlayerSettings playerSettings)
         {

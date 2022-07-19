@@ -7,8 +7,8 @@ namespace NitroxModel_Subnautica.Packets
     [Serializable]
     public class CyclopsToggleFloodLights : Packet
     {
-        public NitroxId Id { get; set; }
-        public bool IsOn { get; set; }
+        public NitroxId Id { get; }
+        public bool IsOn { get; }
 
         public CyclopsToggleFloodLights() { }
 

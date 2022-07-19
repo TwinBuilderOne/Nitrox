@@ -6,9 +6,9 @@ namespace NitroxModel.Packets
     [Serializable]
     public class VehicleOnPilotModeChanged : Packet
     {
-        public NitroxId VehicleId { get; set; }
-        public ushort PlayerId { get; set; }
-        public bool IsPiloting { get; set; }
+        public NitroxId VehicleId { get; }
+        public ushort PlayerId { get; }
+        public bool IsPiloting { get; }
 
         public VehicleOnPilotModeChanged() { }
 

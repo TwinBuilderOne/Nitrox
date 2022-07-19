@@ -8,11 +8,11 @@ namespace NitroxModel.Packets
     [Serializable]
     public class VehicleColorChange : Packet
     {
-        public Optional<NitroxId> ParentId { get; set; }
-        public NitroxId VehicleId { get; set; }
-        public int Index { get; set; }
-        public NitroxVector3 HSB { get; set; }
-        public NitroxColor Color { get; set; }
+        public Optional<NitroxId> ParentId { get; }
+        public NitroxId VehicleId { get; }
+        public int Index { get; }
+        public NitroxVector3 HSB { get; }
+        public NitroxColor Color { get; }
 
         public VehicleColorChange() { }
 

@@ -7,10 +7,10 @@ namespace NitroxModel.Packets
     [Serializable]
     public class PlayerHeldItemChanged : Packet
     {
-        public ushort PlayerId { get; set; }
-        public NitroxId ItemId { get; set; }
-        public ChangeType Type { get; set; }
-        public NitroxTechType IsFirstTime { get; set; } // If it's the first time the player used that item type it send the techType, if not null.
+        public ushort PlayerId { get; }
+        public NitroxId ItemId { get; }
+        public ChangeType Type { get; }
+        public NitroxTechType IsFirstTime { get; } // If it's the first time the player used that item type it send the techType, if not null.
 
         public PlayerHeldItemChanged() { }
 

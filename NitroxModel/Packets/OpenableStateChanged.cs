@@ -6,9 +6,9 @@ namespace NitroxModel.Packets
     [Serializable]
     public class OpenableStateChanged : Packet
     {
-        public NitroxId Id { get; set; }
-        public bool IsOpen { get; set; }
-        public float Duration { get; set; }
+        public NitroxId Id { get; }
+        public bool IsOpen { get; }
+        public float Duration { get; }
 
         public OpenableStateChanged() { }
 

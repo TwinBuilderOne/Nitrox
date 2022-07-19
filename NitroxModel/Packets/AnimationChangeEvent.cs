@@ -5,9 +5,9 @@ namespace NitroxModel.Packets
     [Serializable]
     public class AnimationChangeEvent : Packet
     {
-        public ushort PlayerId { get; set; }
-        public int Type { get; set; }
-        public int State { get; set; }
+        public ushort PlayerId { get; }
+        public int Type { get; }
+        public int State { get; }
 
         public AnimationChangeEvent() { }
 

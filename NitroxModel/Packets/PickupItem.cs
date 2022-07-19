@@ -8,9 +8,9 @@ namespace NitroxModel.Packets
     [Serializable]
     public class PickupItem : Packet
     {
-        public NitroxId Id { get; set; }
-        public NitroxVector3 ItemPosition { get; set; }
-        public NitroxTechType TechType { get; set; }
+        public NitroxId Id { get; }
+        public NitroxVector3 ItemPosition { get; }
+        public NitroxTechType TechType { get; }
 
         public PickupItem() { }
 

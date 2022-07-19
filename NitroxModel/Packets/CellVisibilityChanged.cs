@@ -6,9 +6,9 @@ namespace NitroxModel.Packets
     [Serializable]
     public class CellVisibilityChanged : Packet
     {
-        public ushort PlayerId { get; set; }
-        public AbsoluteEntityCell[] Added { get; set; }
-        public AbsoluteEntityCell[] Removed { get; set; }
+        public ushort PlayerId { get; }
+        public AbsoluteEntityCell[] Added { get; }
+        public AbsoluteEntityCell[] Removed { get; }
 
         public CellVisibilityChanged() { }
 

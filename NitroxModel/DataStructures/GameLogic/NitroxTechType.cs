@@ -17,9 +17,9 @@ namespace NitroxModel.DataStructures.GameLogic
         [ProtoMember(1)]
         public string Name { get; set; }
 
-        public NitroxTechType()
+        protected NitroxTechType()
         {
-            // Constructor for serialization.
+            // Constructor for serialization. Has to be "protected" for json serialization.
         }
 
         public NitroxTechType(string name)

@@ -11,13 +11,13 @@ namespace NitroxModel.DataStructures.GameLogic
     public class AbsoluteEntityCell
     {
         [ProtoMember(1)]
-        public NitroxInt3 BatchId { get; set; }
+        public NitroxInt3 BatchId { get; }
 
         [ProtoMember(2)]
-        public NitroxInt3 CellId { get; set; }
+        public NitroxInt3 CellId { get; }
 
         [ProtoMember(3)]
-        public int Level { get; set; }
+        public int Level { get; }
 
         private static readonly Lazy<IMap> map = new(() => NitroxServiceLocator.LocateService<IMap>());
 
@@ -33,9 +33,9 @@ namespace NitroxModel.DataStructures.GameLogic
             }
         }
 
-        public AbsoluteEntityCell()
+        protected AbsoluteEntityCell()
         {
-            // Constructor for serialization.
+            // Constructor for serialization. Has to be "protected" for json serialization.
         }
 
         public AbsoluteEntityCell(NitroxInt3 batchId, NitroxInt3 cellId, int level)

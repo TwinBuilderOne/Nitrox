@@ -6,7 +6,7 @@ namespace NitroxModel.Packets
     [Serializable]
     public class GameModeChanged : Packet
     {
-        public ServerGameMode GameMode { get; set; }
+        public ServerGameMode GameMode { get; }
 
         public GameModeChanged() { }
 

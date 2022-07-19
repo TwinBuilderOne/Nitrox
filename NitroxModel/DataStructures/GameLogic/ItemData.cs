@@ -10,17 +10,17 @@ namespace NitroxModel.DataStructures.GameLogic
     public class ItemData
     {
         [ProtoMember(1)]
-        public NitroxId ContainerId { get; set; }
+        public NitroxId ContainerId { get; }
 
         [ProtoMember(2)]
-        public NitroxId ItemId { get; set; }
+        public NitroxId ItemId { get; }
 
         [ProtoMember(3)]
-        public byte[] SerializedData { get; set; }
+        public byte[] SerializedData { get; }
 
-        public ItemData()
+        protected ItemData()
         {
-            // Constructor for serialization.
+            // Constructor for serialization. Has to be "protected" for json serialization.
         }
 
         public ItemData(NitroxId containerId, NitroxId itemId, byte[] serializedData)

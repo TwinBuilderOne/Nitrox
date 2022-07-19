@@ -57,7 +57,7 @@ namespace NitroxModel.DataStructures.GameLogic
         [ProtoMember(14, DynamicType = true)]
         public int BuildIndex { get; set; }
 
-        public BasePiece()
+        protected BasePiece()
         {
             ParentId = Optional.Empty;
             RotationMetadata = Optional.Empty;

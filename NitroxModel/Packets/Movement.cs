@@ -7,11 +7,11 @@ namespace NitroxModel.Packets
     [Serializable]
     public class Movement : Packet
     {
-        public ushort PlayerId { get; set; }
-        public NitroxVector3 Position { get; set; }
-        public NitroxVector3 Velocity { get; set; }
-        public NitroxQuaternion BodyRotation { get; set; }
-        public NitroxQuaternion AimingRotation { get; set; }
+        public ushort PlayerId { get; }
+        public NitroxVector3 Position { get; }
+        public NitroxVector3 Velocity { get; }
+        public NitroxQuaternion BodyRotation { get; }
+        public NitroxQuaternion AimingRotation { get; }
 
         public Movement() { }
 

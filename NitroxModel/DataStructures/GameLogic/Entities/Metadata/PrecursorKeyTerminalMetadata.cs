@@ -8,11 +8,11 @@ namespace NitroxModel.DataStructures.GameLogic.Entities.Metadata
     public class PrecursorKeyTerminalMetadata : EntityMetadata
     {
         [ProtoMember(1)]
-        public bool Slotted { get; set; }
+        public bool Slotted { get; }
 
-        public PrecursorKeyTerminalMetadata()
+        protected PrecursorKeyTerminalMetadata()
         {
-            //Constructor for serialization.
+            //Constructor for serialization. Has to be "protected" for json serialization.
         }
 
         public PrecursorKeyTerminalMetadata(bool slotted)

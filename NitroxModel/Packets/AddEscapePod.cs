@@ -6,7 +6,7 @@ namespace NitroxModel.Packets
     [Serializable]
     public class AddEscapePod : Packet
     {
-        public EscapePodModel EscapePod { get; set; }
+        public EscapePodModel EscapePod { get; }
 
         public AddEscapePod() { }
 

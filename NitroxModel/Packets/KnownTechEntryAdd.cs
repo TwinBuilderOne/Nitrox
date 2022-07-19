@@ -21,9 +21,9 @@ namespace NitroxModel.Packets
             ANALYZED = 1
         }
 
-        public NitroxTechType TechType { get; set; }
-        public bool Verbose { get; set; }
-        public EntryCategory Category { get; set; }
+        public NitroxTechType TechType { get; }
+        public bool Verbose { get; }
+        public EntryCategory Category { get; }
 
         public KnownTechEntryAdd() { }
 

@@ -6,9 +6,7 @@ namespace NitroxModel.MultiplayerSession
     [Serializable]
     public class PlayerSettings
     {
-        public NitroxColor PlayerColor { get; set; }
-
-        public PlayerSettings() { }
+        public NitroxColor PlayerColor { get; }
 
         public PlayerSettings(NitroxColor playerColor)
         {

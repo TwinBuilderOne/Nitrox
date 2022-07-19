@@ -6,9 +6,9 @@ namespace NitroxModel.Packets
     [Serializable]
     public class PDAEntryAdd : Packet
     {
-        public NitroxTechType TechType { get; set; }
-        public float Progress { get; set; }
-        public int Unlocked { get; set; }
+        public NitroxTechType TechType { get; }
+        public float Progress { get; }
+        public int Unlocked { get; }
 
         public PDAEntryAdd() { }
 

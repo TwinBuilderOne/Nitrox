@@ -7,9 +7,9 @@ namespace NitroxModel.Packets
     [Serializable]
     public class ItemPosition : Packet
     {
-        public NitroxId Id { get; set; }
-        public NitroxVector3 Position { get; set; }
-        public NitroxQuaternion Rotation { get; set; }
+        public NitroxId Id { get; }
+        public NitroxVector3 Position { get; }
+        public NitroxQuaternion Rotation { get; }
 
         public ItemPosition() { }
 

@@ -6,7 +6,7 @@ namespace NitroxModel.Packets
     [Serializable]
     public class EntitySpawnedByClient : Packet
     {
-        public Entity Entity { get; set; }
+        public Entity Entity { get; }
 
         public EntitySpawnedByClient() { }
 

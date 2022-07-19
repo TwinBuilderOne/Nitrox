@@ -6,9 +6,9 @@ namespace NitroxModel.Packets
     [Serializable]
     public class MultiplayerSessionReservation : CorrelatedPacket
     {
-        public MultiplayerSessionReservationState ReservationState { get; set; }
-        public ushort PlayerId { get; set; }
-        public string ReservationKey { get; set; }
+        public MultiplayerSessionReservationState ReservationState { get; }
+        public ushort PlayerId { get; }
+        public string ReservationKey { get; }
 
         public MultiplayerSessionReservation() : base(string.Empty) { }
 

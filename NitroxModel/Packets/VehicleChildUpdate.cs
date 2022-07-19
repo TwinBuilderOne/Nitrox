@@ -8,8 +8,8 @@ namespace NitroxModel.Packets
     [Serializable]
     public class VehicleChildUpdate : Packet
     {
-        public NitroxId VehicleId { get; set; }
-        public List<InteractiveChildObjectIdentifier> InteractiveChildIdentifiers { get; set; }
+        public NitroxId VehicleId { get; }
+        public List<InteractiveChildObjectIdentifier> InteractiveChildIdentifiers { get; }
 
         public VehicleChildUpdate() { }
 

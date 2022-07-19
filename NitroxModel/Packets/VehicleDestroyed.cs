@@ -6,9 +6,9 @@ namespace NitroxModel.Packets
     [Serializable]
     public class VehicleDestroyed : Packet
     {
-        public NitroxId Id { get; set; }
-        public string PlayerName { get; set; }
-        public bool GetPilotingMode { get; set; }
+        public NitroxId Id { get; }
+        public string PlayerName { get; }
+        public bool GetPilotingMode { get; }
 
         public VehicleDestroyed() { }
 

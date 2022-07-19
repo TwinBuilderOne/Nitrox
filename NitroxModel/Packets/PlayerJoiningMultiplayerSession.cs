@@ -5,7 +5,7 @@ namespace NitroxModel.Packets
     [Serializable]
     public class PlayerJoiningMultiplayerSession : CorrelatedPacket
     {
-        public string ReservationKey { get; set; }
+        public string ReservationKey { get; }
 
         public PlayerJoiningMultiplayerSession() : base(string.Empty) { }
 

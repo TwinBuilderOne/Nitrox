@@ -6,9 +6,9 @@ namespace NitroxModel.Packets
     [Serializable]
     public class PingRenamed : Packet
     {
-        public NitroxId Id { get; set; }
-        public string Name { get; set; }
-        public byte[] BeaconGameObjectSerialized { get; set; }
+        public NitroxId Id { get; }
+        public string Name { get; }
+        public byte[] BeaconGameObjectSerialized { get; }
 
         public PingRenamed() { }
 

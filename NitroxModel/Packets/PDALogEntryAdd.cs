@@ -5,8 +5,8 @@ namespace NitroxModel.Packets
     [Serializable]
     public class PDALogEntryAdd : Packet
     {
-        public string Key { get; set; }
-        public float Timestamp { get; set; }
+        public string Key { get; }
+        public float Timestamp { get; }
 
         public PDALogEntryAdd() { }
 

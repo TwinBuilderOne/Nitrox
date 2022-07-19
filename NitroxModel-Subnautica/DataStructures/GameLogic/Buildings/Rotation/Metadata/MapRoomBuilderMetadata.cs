@@ -16,9 +16,9 @@ namespace NitroxModel_Subnautica.DataStructures.GameLogic.Buildings.Rotation
         [ProtoMember(2)]
         public int ConnectionMask { get; set; }
 
-        public MapRoomBuilderMetadata()
+        protected MapRoomBuilderMetadata()
         {
-            // Constructor for serialization.
+            // Constructor for serialization. Has to be "protected" for json serialization.
         }
 
         public MapRoomBuilderMetadata(byte cellType, int connectionMask)

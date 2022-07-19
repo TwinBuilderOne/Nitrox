@@ -11,7 +11,7 @@ namespace NitroxModel_Subnautica.Packets
     [Serializable]
     public class CyclopsFireCreated : Packet
     {
-        public CyclopsFireData FireCreatedData { get; set; }
+        public CyclopsFireData FireCreatedData { get; }
 
         public CyclopsFireCreated() { }
 

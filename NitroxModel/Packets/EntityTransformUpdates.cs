@@ -8,7 +8,7 @@ namespace NitroxModel.Packets
     [Serializable]
     public class EntityTransformUpdates : Packet
     {
-        public List<EntityTransformUpdate> Updates { get; set; }
+        public List<EntityTransformUpdate> Updates { get; }
 
         public EntityTransformUpdates()
         {
@@ -28,11 +28,9 @@ namespace NitroxModel.Packets
         [Serializable]
         public class EntityTransformUpdate
         {
-            public NitroxId Id { get; set; }
-            public NitroxVector3 Position { get; set; }
-            public NitroxQuaternion Rotation { get; set; }
-
-            public EntityTransformUpdate() { }
+            public NitroxId Id { get; }
+            public NitroxVector3 Position { get; }
+            public NitroxQuaternion Rotation { get; }
 
             public EntityTransformUpdate(NitroxId id, NitroxVector3 position, NitroxQuaternion rotation)
             {

@@ -11,9 +11,9 @@ namespace NitroxModel.DataStructures.GameLogic
         public List<string> GoalUnlocks { get; set; }
         public List<NitroxScheduledGoal> ScheduledGoals { get; set; }
 
-        public InitialStoryGoalData()
+        protected InitialStoryGoalData()
         {
-            // Constructor for serialization.
+            // Constructor for serialization. Has to be "protected" for json serialization.
         }
 
         public InitialStoryGoalData(List<string> completedGoals, List<string> radioQueue, List<string> goalUnlocks, List<NitroxScheduledGoal> scheduledGoals)

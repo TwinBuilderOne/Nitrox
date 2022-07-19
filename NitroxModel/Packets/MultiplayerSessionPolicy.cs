@@ -1,6 +1,6 @@
 ﻿using System;
-using NitroxModel.Helper;
 using NitroxModel.DataStructures;
+using NitroxModel.Helper;
 using NitroxModel.MultiplayerSession;
 
 namespace NitroxModel.Packets
@@ -8,12 +8,12 @@ namespace NitroxModel.Packets
     [Serializable]
     public class MultiplayerSessionPolicy : CorrelatedPacket
     {
-        public bool RequiresServerPassword { get; set; }
-        public bool DisableConsole { get; set; }
-        public int MaxConnections { get; set; }
+        public bool RequiresServerPassword { get; }
+        public bool DisableConsole { get; }
+        public int MaxConnections { get; }
 
-        public MultiplayerSessionAuthenticationAuthority AuthenticationAuthority { get; set; }
-        public NitroxVersion NitroxVersionAllowed { get; set; }
+        public MultiplayerSessionAuthenticationAuthority AuthenticationAuthority { get; }
+        public NitroxVersion NitroxVersionAllowed { get; }
 
         public MultiplayerSessionPolicy() : base(string.Empty) { }
 

@@ -6,7 +6,7 @@ namespace NitroxModel.Packets
     [Serializable]
     public class DeconstructionCompleted : Packet
     {
-        public NitroxId Id { get; set; }
+        public NitroxId Id { get; }
 
         public DeconstructionCompleted() { }
 

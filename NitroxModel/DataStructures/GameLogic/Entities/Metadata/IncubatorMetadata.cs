@@ -8,14 +8,14 @@ namespace NitroxModel.DataStructures.GameLogic.Entities.Metadata
     public class IncubatorMetadata : EntityMetadata
     {
         [ProtoMember(1)]
-        public bool Powered { get; set; }
+        public bool Powered { get; }
 
         [ProtoMember(2)]
-        public bool Hatched { get; set; }
+        public bool Hatched { get; }
 
-        public IncubatorMetadata()
+        protected IncubatorMetadata()
         {
-            //Constructor for serialization.
+            //Constructor for serialization. Has to be "protected" for json serialization.
         }
 
         public IncubatorMetadata(bool powered, bool hatched)

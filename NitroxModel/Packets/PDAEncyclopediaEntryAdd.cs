@@ -5,7 +5,7 @@ namespace NitroxModel.Packets
     [Serializable]
     public class PDAEncyclopediaEntryAdd : Packet
     {
-        public string Key { get; set; }
+        public string Key { get; }
 
         public PDAEncyclopediaEntryAdd() { }
 

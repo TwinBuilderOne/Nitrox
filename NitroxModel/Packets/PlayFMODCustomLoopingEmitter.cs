@@ -6,8 +6,8 @@ namespace NitroxModel.Packets
     [Serializable]
     public class PlayFMODCustomLoopingEmitter : Packet
     {
-        public NitroxId Id { get; set; }
-        public string AssetPath { get; set; }
+        public NitroxId Id { get; }
+        public string AssetPath { get; }
 
         public PlayFMODCustomLoopingEmitter() { }
 

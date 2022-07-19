@@ -6,7 +6,7 @@ namespace NitroxModel.Packets
     [Serializable]
     public class PlayerQuickSlotsBindingChanged : Packet
     {
-        public List<string> Binding { get; set; }
+        public List<string> Binding { get; }
 
         public PlayerQuickSlotsBindingChanged() { }
 

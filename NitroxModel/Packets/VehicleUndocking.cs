@@ -6,10 +6,10 @@ namespace NitroxModel.Packets
     [Serializable]
     public class VehicleUndocking : Packet
     {
-        public NitroxId VehicleId { get; set; }
-        public NitroxId DockId { get; set; }
-        public ushort PlayerId { get; set; }
-        public bool UndockingStart { get; set; }
+        public NitroxId VehicleId { get; }
+        public NitroxId DockId { get; }
+        public ushort PlayerId { get; }
+        public bool UndockingStart { get; }
 
         public VehicleUndocking() { }
 

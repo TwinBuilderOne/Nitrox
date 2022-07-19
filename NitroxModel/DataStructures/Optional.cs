@@ -79,7 +79,7 @@ namespace NitroxModel.DataStructures.Util
         };
 
         [ProtoMember(1)]
-        public T Value { get; set; }
+        public T Value { get; private set; }
 
         public bool HasValue => valueChecksForT(Value);
 

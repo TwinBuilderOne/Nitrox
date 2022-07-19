@@ -11,11 +11,11 @@ namespace NitroxModel.Packets
     [ProtoContract]
     public class LiveMixinHealthChanged : Packet
     {
-        public Optional<DamageTakenData> DamageTakenData { get; set; }
-        public NitroxTechType TechType { get; set; }
+        public Optional<DamageTakenData> DamageTakenData;
+        public NitroxTechType TechType { get; }
         public NitroxId Id { get; set; }
         public float LifeChanged { get; set; }
-        public float TotalHealth { get; set; }
+        public float TotalHealth { get; }
 
         public LiveMixinHealthChanged() { }
 

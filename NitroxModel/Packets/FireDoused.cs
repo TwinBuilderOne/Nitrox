@@ -9,8 +9,8 @@ namespace NitroxModel.Packets
     [Serializable]
     public class FireDoused : Packet
     {
-        public NitroxId Id { get; set; }
-        public float DouseAmount { get; set; }
+        public NitroxId Id { get; }
+        public float DouseAmount { get; }
 
         public FireDoused() { }
 

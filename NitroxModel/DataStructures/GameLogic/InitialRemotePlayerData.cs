@@ -11,12 +11,12 @@ namespace NitroxModel.DataStructures.GameLogic
     {
         public PlayerContext PlayerContext { get; set; }
         public NitroxVector3 Position { get; set; }
-        public Optional<NitroxId> SubRootId { get; set; }
-        public List<NitroxTechType> EquippedTechTypes { get; set; }
+        public Optional<NitroxId> SubRootId { get; }
+        public List<NitroxTechType> EquippedTechTypes { get; }
 
-        public InitialRemotePlayerData()
+        protected InitialRemotePlayerData()
         {
-            // Constructor for serialization.
+            // Constructor for serialization. Has to be "protected" for json serialization.
         }
 
         public InitialRemotePlayerData(PlayerContext playerContext, NitroxVector3 position, Optional<NitroxId> subRootId, List<NitroxTechType> equippedTechTypes)

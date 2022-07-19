@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using ProtoBufNet;
 
 namespace NitroxModel.DataStructures.GameLogic
@@ -8,12 +8,12 @@ namespace NitroxModel.DataStructures.GameLogic
     public class PlantableItemData : ItemData
     {
         [ProtoMember(1)]
-        public double PlantedGameTime { get; set; }
+        public double PlantedGameTime { get; }
 
 
-        public PlantableItemData()
+        protected PlantableItemData()
         {
-            // Constructor for serialization.
+            // Constructor for serialization. Has to be "protected" for json serialization.
         }
 
         /// <summary>

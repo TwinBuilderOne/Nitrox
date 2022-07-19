@@ -15,11 +15,11 @@ namespace NitroxModel.DataStructures
     public class NitroxId : ISerializable
     {
         [ProtoMember(1)]
-        public Guid Guid { get; set; }
+        private Guid guid;
 
         public NitroxId()
         {
-            Guid = Guid.NewGuid();
+            guid = Guid.NewGuid();
         }
 
         /// <summary>
@@ -28,23 +28,23 @@ namespace NitroxModel.DataStructures
         /// <param name="str">a NitroxID as string</param>
         public NitroxId(string str)
         {
-            Guid = new Guid(str);
+            guid = new Guid(str);
         }
 
         public NitroxId(Guid guid)
         {
-            Guid = guid;
+            this.guid = guid;
         }
 
         public NitroxId(byte[] bytes)
         {
-            Guid = new Guid(bytes);
+            guid = new Guid(bytes);
         }
 
         protected NitroxId(SerializationInfo info, StreamingContext context)
         {
             byte[] bytes = (byte[])info.GetValue("id", typeof(byte[]));
-            Guid = new Guid(bytes);
+            guid = new Guid(bytes);
         }
 
         public static bool operator ==(NitroxId id1, NitroxId id2)
@@ -68,7 +68,7 @@ namespace NitroxModel.DataStructures
         [SecurityPermissionAttribute(SecurityAction.Demand, SerializationFormatter = true)]
         public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
         {
-            info.AddValue("id", Guid.ToByteArray());
+            info.AddValue("id", guid.ToByteArray());
         }
 
         public override bool Equals(object obj)
@@ -76,24 +76,24 @@ namespace NitroxModel.DataStructures
             NitroxId id = obj as NitroxId;
 
             return id != null &&
-                   Guid.Equals(id.Guid);
+                   guid.Equals(id.guid);
         }
 
         public override int GetHashCode()
         {
-            return -1324198676 + EqualityComparer<Guid>.Default.GetHashCode(Guid);
+            return -1324198676 + EqualityComparer<Guid>.Default.GetHashCode(guid);
         }
 
         public override string ToString()
         {
-            return Guid.ToString();
+            return guid.ToString();
         }
 
         static int[] byteOrder = { 15, 14, 13, 12, 11, 10, 9, 8, 6, 7, 4, 5, 0, 1, 2, 3 };
 
         public NitroxId Increment()
         {
-            byte[] bytes = Guid.ToByteArray();
+            byte[] bytes = guid.ToByteArray();
             bool canIncrement = byteOrder.Any(i => ++bytes[i] != 0);
             Guid nextGuid = new(canIncrement ? bytes : new byte[16]);
 

@@ -11,7 +11,7 @@ namespace NitroxModel.DataStructures.GameLogic
     public class VehicleModel
     {
         [ProtoMember(1)]
-        public NitroxTechType TechType { get; set; }
+        public NitroxTechType TechType { get; }
 
         [ProtoMember(2)]
         public NitroxId Id { get; set; }
@@ -23,7 +23,7 @@ namespace NitroxModel.DataStructures.GameLogic
         public NitroxQuaternion Rotation { get; set; }
 
         [ProtoMember(5)]
-        public ThreadSafeList<InteractiveChildObjectIdentifier> InteractiveChildIdentifiers { get; set; }
+        public ThreadSafeList<InteractiveChildObjectIdentifier> InteractiveChildIdentifiers { get; }
 
         [ProtoMember(6)]
         public Optional<NitroxId> DockingBayId { get; set; }
@@ -37,9 +37,9 @@ namespace NitroxModel.DataStructures.GameLogic
         [ProtoMember(9)]
         public float Health { get; set; }
 
-        public VehicleModel()
+        protected VehicleModel()
         {
-            // Constructor for serialization.
+            // Constructor for serialization. Has to be "protected" for json serialization.
             InteractiveChildIdentifiers = new ThreadSafeList<InteractiveChildObjectIdentifier>();
             DockingBayId = Optional.Empty;
             Health = 200;

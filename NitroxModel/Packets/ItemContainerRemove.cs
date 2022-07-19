@@ -6,8 +6,8 @@ namespace NitroxModel.Packets
     [Serializable]
     public class ItemContainerRemove : Packet
     {
-        public NitroxId OwnerId { get; set; }
-        public NitroxId ItemId { get; set; }
+        public NitroxId OwnerId { get; }
+        public NitroxId ItemId { get; }
 
         public ItemContainerRemove() { }
 

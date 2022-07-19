@@ -7,9 +7,9 @@ namespace NitroxModel.Packets
     [Serializable]
     public class EnergyMixinValueChanged : Packet
     {
-        public NitroxId OwnerId { get; set; }
-        public float Value { get; set; }
-        public ItemData BatteryData { get; set; }
+        public NitroxId OwnerId { get; }
+        public float Value { get; }
+        public ItemData BatteryData { get; }
 
         public EnergyMixinValueChanged() { }
 

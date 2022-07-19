@@ -6,13 +6,13 @@ namespace NitroxModel.Packets
     [Serializable]
     public class PlayerStats : Packet
     {
-        public ushort PlayerId { get; set; }
-        public float Oxygen { get; set; }
-        public float MaxOxygen { get; set; }
-        public float Health { get; set; }
-        public float Food { get; set; }
-        public float Water { get; set; }
-        public float InfectionAmount { get; set; }
+        public ushort PlayerId { get; }
+        public float Oxygen { get; }
+        public float MaxOxygen { get; }
+        public float Health { get; }
+        public float Food { get; }
+        public float Water { get; }
+        public float InfectionAmount { get; }
 
         public PlayerStats() { }
 
