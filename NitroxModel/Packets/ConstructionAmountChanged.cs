@@ -9,8 +9,6 @@ namespace NitroxModel.Packets
         public NitroxId Id { get; }
         public float ConstructionAmount { get; }
 
-        public ConstructionAmountChanged() { }
-
         public ConstructionAmountChanged(NitroxId id, float constructionAmount)
         {
             Id = id;

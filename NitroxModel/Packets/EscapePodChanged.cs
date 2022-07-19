@@ -10,8 +10,6 @@ namespace NitroxModel.Packets
         public ushort PlayerId { get; }
         public Optional<NitroxId> EscapePodId { get; }
 
-        public EscapePodChanged() { }
-
         public EscapePodChanged(ushort playerId, Optional<NitroxId> escapePodId)
         {
             PlayerId = playerId;

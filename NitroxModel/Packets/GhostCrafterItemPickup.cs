@@ -10,8 +10,6 @@ namespace NitroxModel.Packets
         public NitroxId GhostCrafterId { get; }
         public NitroxTechType TechType { get; }
 
-        public GhostCrafterItemPickup() { }
-
         public GhostCrafterItemPickup(NitroxId ghostCrafterId, NitroxTechType techType)
         {
             GhostCrafterId = ghostCrafterId;

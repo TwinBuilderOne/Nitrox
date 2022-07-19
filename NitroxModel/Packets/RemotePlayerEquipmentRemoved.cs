@@ -9,8 +9,6 @@ namespace NitroxModel.Packets
         public ushort PlayerId { get; }
         public NitroxTechType TechType { get; }
 
-        public RemotePlayerEquipmentRemoved() { }
-
         public RemotePlayerEquipmentRemoved(ushort playerId, NitroxTechType techType)
         {
             PlayerId = playerId;

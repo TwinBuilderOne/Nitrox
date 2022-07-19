@@ -16,8 +16,6 @@ namespace NitroxModel.Packets
         public NitroxQuaternion ItemRotation { get; }
         public byte[] Bytes { get; }
 
-        public DroppedItem() { }
-
         public DroppedItem(NitroxId id, Optional<NitroxId> waterParkId, NitroxTechType techType, NitroxVector3 itemPosition, NitroxQuaternion itemRotation, byte[] bytes)
         {
             Id = id;

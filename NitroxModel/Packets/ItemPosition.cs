@@ -11,8 +11,6 @@ namespace NitroxModel.Packets
         public NitroxVector3 Position { get; }
         public NitroxQuaternion Rotation { get; }
 
-        public ItemPosition() { }
-
         public ItemPosition(NitroxId id, NitroxVector3 position, NitroxQuaternion rotation)
         {
             Id = id;

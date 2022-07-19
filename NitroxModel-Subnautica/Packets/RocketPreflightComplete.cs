@@ -10,8 +10,6 @@ namespace NitroxModel_Subnautica.Packets
         public NitroxId Id { get; }
         public PreflightCheck FlightCheck { get; }
 
-        public RocketPreflightComplete() { }
-
         public RocketPreflightComplete(NitroxId id, PreflightCheck flightCheck)
         {
             Id = id;

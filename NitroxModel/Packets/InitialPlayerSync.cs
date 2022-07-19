@@ -36,8 +36,6 @@ namespace NitroxModel.Packets
         public ServerGameMode GameMode { get; }
         public Perms Permissions { get; }
 
-        public InitialPlayerSync() { }
-
         public InitialPlayerSync(NitroxId playerGameObjectId,
             bool firstTimeConnecting,
             IEnumerable<EscapePodModel> escapePodsData,

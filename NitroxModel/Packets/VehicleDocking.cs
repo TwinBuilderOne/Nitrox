@@ -10,8 +10,6 @@ namespace NitroxModel.Packets
         public NitroxId DockId { get; }
         public ushort PlayerId { get; }
 
-        public VehicleDocking() { }
-
         public VehicleDocking(NitroxId vehicleId, NitroxId dockId, ushort playerId)
         {
             VehicleId = vehicleId;

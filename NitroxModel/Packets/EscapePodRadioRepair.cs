@@ -8,8 +8,6 @@ namespace NitroxModel.Packets
     {
         public NitroxId Id { get; }
 
-        public EscapePodRadioRepair() { }
-
         public EscapePodRadioRepair(NitroxId id)
         {
             Id = id;

@@ -9,8 +9,6 @@ namespace NitroxModel.Packets
         public NitroxTechType TechType { get; }
         public EquippedItemData EquippedItem { get; }
 
-        public PlayerEquipmentAdded() { }
-
         public PlayerEquipmentAdded(NitroxTechType techType, EquippedItemData equippedItem)
         {
             TechType = techType;

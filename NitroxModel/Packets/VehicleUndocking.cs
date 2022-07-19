@@ -11,8 +11,6 @@ namespace NitroxModel.Packets
         public ushort PlayerId { get; }
         public bool UndockingStart { get; }
 
-        public VehicleUndocking() { }
-
         public VehicleUndocking(NitroxId vehicleId, NitroxId dockId, ushort playerId, bool undockingStart)
         {
             VehicleId = vehicleId;

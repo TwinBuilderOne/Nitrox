@@ -9,8 +9,6 @@ namespace NitroxModel.Packets
         public NitroxId Id { get; }
         public bool IsOn { get; }
 
-        public ToggleLights() { }
-
         public ToggleLights(NitroxId id, bool isOn)
         {
             Id = id;

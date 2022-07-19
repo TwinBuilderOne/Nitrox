@@ -9,8 +9,6 @@ namespace NitroxModel.Packets
         public NitroxId OwnerId { get; }
         public NitroxId ItemId { get; }
 
-        public ItemContainerRemove() { }
-
         public ItemContainerRemove(NitroxId ownerId, NitroxId itemId)
         {
             OwnerId = ownerId;

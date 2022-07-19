@@ -10,8 +10,6 @@ namespace NitroxModel.Packets
         public bool IsOpen { get; }
         public float Duration { get; }
 
-        public OpenableStateChanged() { }
-
         public OpenableStateChanged(NitroxId id, bool isOpen, float duration)
         {
             Id = id;

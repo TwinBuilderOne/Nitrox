@@ -12,8 +12,6 @@ namespace NitroxModel.Packets
         public float Radius { get; set; }
         public bool IsGlobal { get; }
 
-        public PlayFMODAsset() { }
-
         public PlayFMODAsset(string assetPath, NitroxVector3 position, float volume, float radius, bool isGlobal)
         {
             AssetPath = assetPath;

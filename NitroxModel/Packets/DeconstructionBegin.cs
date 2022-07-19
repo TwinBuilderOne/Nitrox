@@ -8,8 +8,6 @@ namespace NitroxModel.Packets
     {
         public NitroxId Id { get; }
 
-        public DeconstructionBegin() { }
-
         public DeconstructionBegin(NitroxId id)
         {
             Id = id;

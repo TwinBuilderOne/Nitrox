@@ -12,8 +12,6 @@ namespace NitroxModel.Packets
         public NitroxVector3 ItemPosition { get; }
         public NitroxTechType TechType { get; }
 
-        public PickupItem() { }
-
         public PickupItem(NitroxVector3 itemPosition, NitroxId id, NitroxTechType techType)
         {
             ItemPosition = itemPosition;

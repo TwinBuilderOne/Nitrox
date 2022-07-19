@@ -11,8 +11,6 @@ namespace NitroxModel_Subnautica.Packets
         public int DamagePointIndex { get; }
         public float RepairAmount { get; }
 
-        public CyclopsDamagePointRepaired() { }
-
         /// <param name="id">The Cyclops id</param>
         /// <param name="repairAmount">The amount to repair the damage by. A large repair amount is passed if the point is meant to be fully repaired</param>
         public CyclopsDamagePointRepaired(NitroxId id, int damagePointIndex, float repairAmount)

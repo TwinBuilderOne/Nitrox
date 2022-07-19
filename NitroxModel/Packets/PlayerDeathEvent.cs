@@ -9,8 +9,6 @@ namespace NitroxModel.Packets
         public ushort PlayerId { get; }
         public NitroxVector3 DeathPosition { get; }
 
-        public PlayerDeathEvent() { }
-
         public PlayerDeathEvent(ushort playerId, NitroxVector3 deathPosition)
         {
             PlayerId = playerId;

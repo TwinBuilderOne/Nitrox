@@ -12,8 +12,6 @@ namespace NitroxModel.Packets
         public ChangeType Type { get; }
         public NitroxTechType IsFirstTime { get; } // If it's the first time the player used that item type it send the techType, if not null.
 
-        public PlayerHeldItemChanged() { }
-
         public PlayerHeldItemChanged(ushort playerId, NitroxId itemId, ChangeType type, NitroxTechType isFirstTime)
         {
             PlayerId = playerId;

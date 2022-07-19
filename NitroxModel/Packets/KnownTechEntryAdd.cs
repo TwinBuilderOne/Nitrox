@@ -25,8 +25,6 @@ namespace NitroxModel.Packets
         public bool Verbose { get; }
         public EntryCategory Category { get; }
 
-        public KnownTechEntryAdd() { }
-
         public KnownTechEntryAdd(EntryCategory category, NitroxTechType techType, bool verbose)
         {
             Category = category;

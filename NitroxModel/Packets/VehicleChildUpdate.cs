@@ -11,8 +11,6 @@ namespace NitroxModel.Packets
         public NitroxId VehicleId { get; }
         public List<InteractiveChildObjectIdentifier> InteractiveChildIdentifiers { get; }
 
-        public VehicleChildUpdate() { }
-
         public VehicleChildUpdate(NitroxId vehicleId, List<InteractiveChildObjectIdentifier> interactiveChildIdentifiers)
         {
             VehicleId = vehicleId;

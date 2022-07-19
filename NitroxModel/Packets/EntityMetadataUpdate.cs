@@ -11,8 +11,6 @@ namespace NitroxModel.Packets
 
         public EntityMetadata NewValue { get; }
 
-        public EntityMetadataUpdate() { }
-
         public EntityMetadataUpdate(NitroxId id, EntityMetadata newValue)
         {
             Id = id;

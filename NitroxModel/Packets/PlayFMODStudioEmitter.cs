@@ -11,8 +11,6 @@ namespace NitroxModel.Packets
         public bool Play { get; }
         public bool AllowFadeout { get; }
 
-        public PlayFMODStudioEmitter() { }
-
         public PlayFMODStudioEmitter(NitroxId id, string assetPath, bool play, bool allowFadeout)
         {
             Id = id;

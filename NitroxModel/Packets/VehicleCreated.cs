@@ -9,8 +9,6 @@ namespace NitroxModel.Packets
         public string PlayerName { get; }
         public VehicleModel CreatedVehicle { get; }
 
-        public VehicleCreated() { }
-
         public VehicleCreated(VehicleModel createdVehicle, string playerName)
         {
             CreatedVehicle = createdVehicle;

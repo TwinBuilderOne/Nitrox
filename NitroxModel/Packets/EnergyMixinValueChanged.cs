@@ -11,8 +11,6 @@ namespace NitroxModel.Packets
         public float Value { get; }
         public ItemData BatteryData { get; }
 
-        public EnergyMixinValueChanged() { }
-
         public EnergyMixinValueChanged(NitroxId ownerId, float value, ItemData batteryData)
         {
             OwnerId = ownerId;

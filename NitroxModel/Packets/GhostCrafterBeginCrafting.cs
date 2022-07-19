@@ -11,8 +11,6 @@ namespace NitroxModel.Packets
         public NitroxTechType TechType { get; }
         public float Duration { get; }
 
-        public GhostCrafterBeginCrafting() { }
-
         public GhostCrafterBeginCrafting(NitroxId ghostCrafterId, NitroxTechType techType, float duration)
         {
             GhostCrafterId = ghostCrafterId;

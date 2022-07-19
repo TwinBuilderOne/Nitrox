@@ -8,8 +8,6 @@ namespace NitroxModel.Packets
         public double CurrentTime { get; }
         public bool InitialSync { get; }
 
-        public TimeChange() { }
-
         public TimeChange(double currentTime, bool initialSync)
         {
             CurrentTime = currentTime;

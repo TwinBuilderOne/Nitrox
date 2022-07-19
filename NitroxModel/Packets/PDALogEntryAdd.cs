@@ -8,8 +8,6 @@ namespace NitroxModel.Packets
         public string Key { get; }
         public float Timestamp { get; }
 
-        public PDALogEntryAdd() { }
-
         public PDALogEntryAdd(string key, float timestamp)
         {
             Key = key;

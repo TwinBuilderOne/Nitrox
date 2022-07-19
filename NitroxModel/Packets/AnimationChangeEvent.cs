@@ -9,8 +9,6 @@ namespace NitroxModel.Packets
         public int Type { get; }
         public int State { get; }
 
-        public AnimationChangeEvent() { }
-
         public AnimationChangeEvent(ushort playerId, int type, int state)
         {
             PlayerId = playerId;

@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using LZ4;
 using NitroxModel.Networking;
 using BinaryConverter = BinaryPack.BinaryConverter;
 

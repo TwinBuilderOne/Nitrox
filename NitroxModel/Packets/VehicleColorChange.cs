@@ -14,8 +14,6 @@ namespace NitroxModel.Packets
         public NitroxVector3 HSB { get; }
         public NitroxColor Color { get; }
 
-        public VehicleColorChange() { }
-
         public VehicleColorChange(int index, NitroxId parentId, NitroxId vehicleId, NitroxVector3 hsb, NitroxColor color)
         {
             ParentId = Optional.OfNullable(parentId);

@@ -8,8 +8,6 @@ namespace NitroxModel.Packets
     {
         public ItemData ItemData { get; }
 
-        public ItemContainerAdd() { }
-
         public ItemContainerAdd(ItemData itemData)
         {
             ItemData = itemData;

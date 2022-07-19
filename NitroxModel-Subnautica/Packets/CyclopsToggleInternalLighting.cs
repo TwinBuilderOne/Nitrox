@@ -10,8 +10,6 @@ namespace NitroxModel_Subnautica.Packets
         public NitroxId Id { get; }
         public bool IsOn { get; }
 
-        public CyclopsToggleInternalLighting() { }
-
         public CyclopsToggleInternalLighting(NitroxId id, bool isOn)
         {
             Id = id;

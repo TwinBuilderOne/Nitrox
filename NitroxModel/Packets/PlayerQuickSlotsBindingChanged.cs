@@ -8,8 +8,6 @@ namespace NitroxModel.Packets
     {
         public List<string> Binding { get; }
 
-        public PlayerQuickSlotsBindingChanged() { }
-
         public PlayerQuickSlotsBindingChanged(List<string> binding)
         {
             Binding = binding;

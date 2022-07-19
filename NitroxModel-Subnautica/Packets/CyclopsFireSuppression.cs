@@ -9,8 +9,6 @@ namespace NitroxModel_Subnautica.Packets
     {
         public NitroxId Id { get; }
 
-        public CyclopsFireSuppression() { }
-
         public CyclopsFireSuppression(NitroxId id)
         {
             Id = id;

@@ -8,8 +8,6 @@ namespace NitroxModel.Packets
     {
         public NitroxTechType TechType { get; }
 
-        public PDAEntryRemove() { }
-
         public PDAEntryRemove(NitroxTechType techType)
         {
             TechType = techType;

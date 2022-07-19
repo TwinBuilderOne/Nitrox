@@ -11,8 +11,6 @@ namespace NitroxModel.Packets
         public bool HasMedKit { get; }
         public float NextSpawnTime { get; }
 
-        public MedicalCabinetClicked() { }
-
         public MedicalCabinetClicked(NitroxId id, bool doorOpen, bool hasMedKit, float nextSpawnTime)
         {
             Id = id;

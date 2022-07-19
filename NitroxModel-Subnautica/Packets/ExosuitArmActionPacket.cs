@@ -14,8 +14,6 @@ namespace NitroxModel_Subnautica.Packets
         public Vector3? OpVector { get; }
         public Quaternion? OpRotation { get; }
 
-        public ExosuitArmActionPacket() { }
-
         public ExosuitArmActionPacket(TechType techType, NitroxId armId, ExosuitArmAction armAction, Vector3? opVector, Quaternion? opRotation)
         {
             TechType = techType;

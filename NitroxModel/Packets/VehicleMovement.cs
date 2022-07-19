@@ -9,8 +9,6 @@ namespace NitroxModel.Packets
     {
         public VehicleMovementData VehicleMovementData { get; }
 
-        public VehicleMovement() { }
-
         public VehicleMovement(ushort playerId, VehicleMovementData vehicleMovementData) : base(playerId, vehicleMovementData.Position, vehicleMovementData.Velocity, vehicleMovementData.Rotation, vehicleMovementData.Rotation)
         {
             VehicleMovementData = vehicleMovementData;
