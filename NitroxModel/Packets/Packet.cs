@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using BinaryPack.Attributes;
 using LZ4;
 using NitroxModel.Networking;
 using BinaryConverter = BinaryPack.BinaryConverter;
@@ -68,8 +69,10 @@ namespace NitroxModel.Packets
             }
         }
 
-        public NitroxDeliveryMethod.DeliveryMethod DeliveryMethod { get; set; } = NitroxDeliveryMethod.DeliveryMethod.RELIABLE_ORDERED;
-        public UdpChannelId UdpChannel { get; set; } = UdpChannelId.DEFAULT;
+        [IgnoredMember]
+        public NitroxDeliveryMethod.DeliveryMethod DeliveryMethod { get; protected set; } = NitroxDeliveryMethod.DeliveryMethod.RELIABLE_ORDERED;
+        [IgnoredMember]
+        public UdpChannelId UdpChannel { get; protected set; } = UdpChannelId.DEFAULT;
 
         public enum UdpChannelId
         {

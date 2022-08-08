@@ -24,7 +24,18 @@ namespace NitroxModel.Packets
 
             Version ver = NitroxEnvironment.Version;
             // only the major and minor version number is required
-            NitroxVersionAllowed = new NitroxVersion(ver.Major, ver.Minor);
+            NitroxVersionAllowed = new(ver.Major, ver.Minor);
+        }
+
+        // Used for deserialization
+        public MultiplayerSessionPolicy(string correlationId, bool disableConsole, int maxConnections, bool requiresServerPassword,
+            MultiplayerSessionAuthenticationAuthority authenticationAuthority, NitroxVersion nitroxVersionAllowed) : base(correlationId)
+        {
+            RequiresServerPassword = requiresServerPassword;
+            AuthenticationAuthority = authenticationAuthority;
+            DisableConsole = disableConsole;
+            MaxConnections = maxConnections;
+            NitroxVersionAllowed = nitroxVersionAllowed;
         }
     }
 }

@@ -39,5 +39,15 @@ namespace NitroxModel.Packets
                 DealerId = dealerId
             };
         }
+
+        // Used for deserialization
+        public LiveMixinHealthChanged(NitroxTechType techType, NitroxId id, float lifeChanged, float totalHealth, Optional<DamageTakenData> damageTakenData)
+        {
+            TechType = techType;
+            Id = id;
+            LifeChanged = lifeChanged;
+            TotalHealth = totalHealth;
+            DamageTakenData = damageTakenData;
+        }
     }
 }

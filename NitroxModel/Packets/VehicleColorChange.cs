@@ -22,5 +22,15 @@ namespace NitroxModel.Packets
             HSB = hsb;
             Color = color;
         }
+
+        // Used for deserialization
+        public VehicleColorChange(int index, Optional<NitroxId> parentId, NitroxId vehicleId, NitroxVector3 hsb, NitroxColor color)
+        {
+            ParentId = parentId;
+            VehicleId = vehicleId;
+            Index = index;
+            HSB = hsb;
+            Color = color;
+        }
     }
 }

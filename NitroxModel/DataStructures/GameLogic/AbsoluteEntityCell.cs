@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryPack.Attributes;
 using NitroxModel.Core;
 using NitroxModel.DataStructures.Unity;
 using NitroxModel.Helper;
@@ -33,6 +34,7 @@ namespace NitroxModel.DataStructures.GameLogic
             }
         }
 
+        [IgnoreConstructor]
         protected AbsoluteEntityCell()
         {
             // Constructor for serialization. Has to be "protected" for json serialization.

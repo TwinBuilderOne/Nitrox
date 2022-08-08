@@ -84,5 +84,55 @@ namespace NitroxModel.Packets
             GameMode = gameMode;
             Permissions = perms;
         }
+
+        // Used for deserialization
+        public InitialPlayerSync(NitroxId playerGameObjectId,
+            bool firstTimeConnecting,
+            List<EscapePodModel> escapePodsData,
+            NitroxId assignedEscapePodId,
+            List<EquippedItemData> equippedItems,
+            List<EquippedItemData> modules,
+            List<BasePiece> basePieces,
+            List<VehicleModel> vehicles,
+            List<ItemData> inventoryItems,
+            List<ItemData> storageSlotItems,
+            List<NitroxTechType> usedItems,
+            List<string> quickSlotsBinding,
+            InitialPDAData pdaData,
+            InitialStoryGoalData storyGoalData,
+            ICollection<string> completedGoals,
+            NitroxVector3 playerSpawnData,
+            Optional<NitroxId> playerSubRootId,
+            PlayerStatsData playerStatsData,
+            List<InitialRemotePlayerData> remotePlayerData,
+            List<Entity> globalRootEntities,
+            List<NitroxId> initialSimulationOwnerships,
+            ServerGameMode gameMode,
+            Perms permissions)
+        {
+            EscapePodsData = escapePodsData;
+            AssignedEscapePodId = assignedEscapePodId;
+            PlayerGameObjectId = playerGameObjectId;
+            FirstTimeConnecting = firstTimeConnecting;
+            EquippedItems = equippedItems;
+            Modules = modules;
+            BasePieces = basePieces;
+            Vehicles = vehicles;
+            InventoryItems = inventoryItems;
+            StorageSlotItems = storageSlotItems;
+            UsedItems = usedItems;
+            QuickSlotsBinding = quickSlotsBinding;
+            PDAData = pdaData;
+            StoryGoalData = storyGoalData;
+            CompletedGoals = completedGoals;
+            PlayerSpawnData = playerSpawnData;
+            PlayerSubRootId = playerSubRootId;
+            PlayerStatsData = playerStatsData;
+            RemotePlayerData = remotePlayerData;
+            GlobalRootEntities = globalRootEntities;
+            InitialSimulationOwnerships = initialSimulationOwnerships;
+            GameMode = gameMode;
+            Permissions = permissions;
+        }
     }
 }

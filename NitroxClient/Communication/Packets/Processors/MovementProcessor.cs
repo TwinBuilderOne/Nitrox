@@ -6,16 +6,16 @@ using NitroxModel_Subnautica.DataStructures;
 
 namespace NitroxClient.Communication.Packets.Processors
 {
-    public class MovementProcessor : ClientPacketProcessor<Movement>
+    public class PlayerMovementProcessor : ClientPacketProcessor<PlayerMovement>
     {
         private readonly PlayerManager remotePlayerManager;
 
-        public MovementProcessor(PlayerManager remotePlayerManager)
+        public PlayerMovementProcessor(PlayerManager remotePlayerManager)
         {
             this.remotePlayerManager = remotePlayerManager;
         }
 
-        public override void Process(Movement movement)
+        public override void Process(PlayerMovement movement)
         {
             Optional<RemotePlayer> remotePlayer = remotePlayerManager.Find(movement.PlayerId);
 

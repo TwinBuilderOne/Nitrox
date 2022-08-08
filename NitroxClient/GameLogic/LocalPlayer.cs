@@ -59,7 +59,7 @@ namespace NitroxClient.GameLogic
             }
             else
             {
-                movement = new Movement(multiplayerSession.Reservation.PlayerId, location.ToDto(), velocity.ToDto(), bodyRotation.ToDto(), aimingRotation.ToDto());
+                movement = new NitroxModel.Packets.PlayerMovement(multiplayerSession.Reservation.PlayerId, location.ToDto(), velocity.ToDto(), bodyRotation.ToDto(), aimingRotation.ToDto());
             }
 
             packetSender.Send(movement);

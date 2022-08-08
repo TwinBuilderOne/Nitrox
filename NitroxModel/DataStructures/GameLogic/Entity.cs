@@ -61,7 +61,7 @@ namespace NitroxModel.DataStructures.GameLogic
 
         [ProtoMember(11)]
         public EntityMetadata Metadata { get; set; }
-        
+
         /// <summary>
         ///     If set, this entity already exists as a gameobject in the world (maybe as a child of a prefab we already spawned).
         ///     This id can be used to find the object and update the corresponding id.
@@ -109,6 +109,24 @@ namespace NitroxModel.DataStructures.GameLogic
             SerializedGameObject = serializedGameObject;
             ExistsInGlobalRoot = existsInGlobalRoot;
             ExistingGameObjectChildIndex = null;
+        }
+
+        // Used for deserialization
+        public Entity(NitroxTransform transform, NitroxTechType techType, NitroxId id, int level, string classId, bool spawnedByServer, NitroxId waterParkId, byte[] serializedGameObject, bool existsInGlobalRoot, NitroxId parentId, EntityMetadata metadata, int? existingGameObjectChildIndex, List<Entity> childEntities)
+        {
+            Transform = transform;
+            TechType = techType;
+            Id = id;
+            Level = level;
+            ClassId = classId;
+            SpawnedByServer = spawnedByServer;
+            WaterParkId = waterParkId;
+            SerializedGameObject = serializedGameObject;
+            ExistsInGlobalRoot = existsInGlobalRoot;
+            ParentId = parentId;
+            Metadata = metadata;
+            ExistingGameObjectChildIndex = existingGameObjectChildIndex;
+            ChildEntities = childEntities;
         }
 
         public override string ToString()
