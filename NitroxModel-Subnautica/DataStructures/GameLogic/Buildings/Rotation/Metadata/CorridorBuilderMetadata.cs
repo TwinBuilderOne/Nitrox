@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryPack.Attributes;
 using NitroxModel.DataStructures;
 using NitroxModel.DataStructures.GameLogic.Buildings.Rotation;
 using NitroxModel.DataStructures.Unity;
@@ -25,17 +26,18 @@ namespace NitroxModel_Subnautica.DataStructures.GameLogic.Buildings.Rotation
         [ProtoMember(4)]
         public NitroxInt3 Cell { get; set; }
 
+        [IgnoreConstructor]
         protected CorridorBuilderMetadata()
         {
             // Constructor for serialization. Has to be "protected" for json serialization.
         }
 
-        public CorridorBuilderMetadata(NitroxVector3 position, int rotation, bool hasTargetBase, NitroxInt3 targetCell)
+        public CorridorBuilderMetadata(NitroxVector3 position, int rotation, bool hasTargetBase, NitroxInt3 cell)
         {
             Position = position;
             Rotation = rotation;
             HasTargetBase = hasTargetBase;
-            Cell = targetCell;
+            Cell = cell;
         }
 
         public override string ToString()

@@ -1,4 +1,5 @@
 ﻿using System;
+using BinaryPack.Attributes;
 using NitroxModel.DataStructures.GameLogic.Buildings.Rotation;
 using ProtoBufNet;
 
@@ -16,6 +17,7 @@ namespace NitroxModel_Subnautica.DataStructures.GameLogic.Buildings.Rotation
         [ProtoMember(2)]
         public int ConnectionMask { get; set; }
 
+        [IgnoreConstructor]
         protected MapRoomBuilderMetadata()
         {
             // Constructor for serialization. Has to be "protected" for json serialization.

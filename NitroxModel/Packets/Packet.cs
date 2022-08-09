@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using BinaryPack.Attributes;
-using LZ4;
 using NitroxModel.Networking;
 using BinaryConverter = BinaryPack.BinaryConverter;
 
@@ -20,28 +18,22 @@ namespace NitroxModel.Packets
 
         public static void InitSerializer()
         {
-            // This will initialize the processor for Wrapper which will initialize all the others
-            _ = BinaryConverter.Serialize(new Wrapper());
-        }
-
-        static Packet()
-        {
             static IEnumerable<Type> FindTypesInModelAssemblies()
             {
                 return AppDomain.CurrentDomain.GetAssemblies()
                                               .Where(assembly => new string[] { "NitroxModel", "NitroxModel-Subnautica" }
                                                                  .Contains(assembly.GetName().Name))
                                               .SelectMany(assembly =>
+                                              {
+                                                  try
                                                   {
-                                                      try
-                                                      {
-                                                          return assembly.GetTypes();
-                                                      }
-                                                      catch (ReflectionTypeLoadException e)
-                                                      {
-                                                          return e.Types.Where(t => t != null);
-                                                      }
-                                                  });
+                                                      return assembly.GetTypes();
+                                                  }
+                                                  catch (ReflectionTypeLoadException e)
+                                                  {
+                                                      return e.Types.Where(t => t != null);
+                                                  }
+                                              });
             }
 
             static IEnumerable<Type> FindUnionBaseTypes() => FindTypesInModelAssemblies()
@@ -67,6 +59,9 @@ namespace NitroxModel.Packets
                     .ThenBy(t => t.FullName)
                     .ToArray());
             }
+
+            // This will initialize the processor for Wrapper which will initialize all the others
+            _ = BinaryConverter.Serialize(new Wrapper());
         }
 
         [IgnoredMember]
