@@ -8,6 +8,7 @@
     <ItemGroup>
         <PackageReference Include="Autofac" Version="4.9.4" />
         <PackageReference Include="LiteNetLib" Version="0.8.3.1" />
+        <PackageReference Include="Nitrox.BinaryPack" Version="1.0.0" />
         <PackageReference Include="Microsoft.Win32.Registry" Version="5.0.0" />
         <PackageReference Include="Mono.Nat" Version="3.0.2" />
         <PackageReference Include="Serilog" Version="2.10.0" />
@@ -23,19 +24,16 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Reference Include="BinaryPack">
-        <HintPath>..\Nitrox.Assets.Subnautica\BinaryPack.dll</HintPath>
-      </Reference>
-      <Reference Include="LZ4">
-        <HintPath>..\Nitrox.Assets.Subnautica\LZ4.dll</HintPath>
-      </Reference>
-      <Reference Include="protobuf-net">
-        <HintPath>..\Nitrox.Assets.Subnautica\protobuf-net.dll</HintPath>
-      </Reference>
-      <Reference Include="Serilog.Sinks.Map">
-        <HintPath>..\Nitrox.Assets.Subnautica\Serilog.Sinks.Map.dll</HintPath>
-      </Reference>
-      <Reference Include="System.Net.Http" />
+        <Reference Include="LZ4">
+            <HintPath>..\Nitrox.Assets.Subnautica\LZ4.dll</HintPath>
+        </Reference>
+        <Reference Include="protobuf-net">
+            <HintPath>..\Nitrox.Assets.Subnautica\protobuf-net.dll</HintPath>
+        </Reference>
+        <Reference Include="Serilog.Sinks.Map">
+            <HintPath>..\Nitrox.Assets.Subnautica\Serilog.Sinks.Map.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Net.Http" />
     </ItemGroup>
 
 </Project>
