@@ -52,7 +52,7 @@ namespace NitroxModel_Subnautica.DataStructures.GameLogic
             EngineMode = CyclopsMotorMode.CyclopsMotorModes.Standard;
         }
 
-        // Used for deserialization
+        /// <remarks>Used for deserialization</remarks>
         public CyclopsModel(
             NitroxTechType techType,
             NitroxId id,

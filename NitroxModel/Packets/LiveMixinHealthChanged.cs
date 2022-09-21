@@ -40,7 +40,7 @@ namespace NitroxModel.Packets
             };
         }
 
-        // Used for deserialization
+        /// <remarks>Used for deserialization</remarks>
         public LiveMixinHealthChanged(NitroxTechType techType, NitroxId id, float lifeChanged, float totalHealth, Optional<DamageTakenData> damageTakenData)
         {
             TechType = techType;

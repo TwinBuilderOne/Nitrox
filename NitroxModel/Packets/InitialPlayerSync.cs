@@ -85,7 +85,7 @@ namespace NitroxModel.Packets
             Permissions = perms;
         }
 
-        // Used for deserialization
+        /// <remarks>Used for deserialization</remarks>
         public InitialPlayerSync(NitroxId playerGameObjectId,
             bool firstTimeConnecting,
             List<EscapePodModel> escapePodsData,

@@ -87,7 +87,7 @@ namespace NitroxModel.DataStructures.GameLogic
             Metadata = metadata;
         }
 
-        // Used for deserialization
+        /// <remarks>Used for deserialization</remarks>
         public BasePiece(
             NitroxId id,
             NitroxVector3 itemPosition,

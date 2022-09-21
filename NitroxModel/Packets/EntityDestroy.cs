@@ -6,9 +6,7 @@ namespace NitroxModel.Packets;
 [Serializable]
 public class EntityDestroy : Packet
 {
-    public NitroxId EntityId { get; set; }
-
-    public EntityDestroy() { }
+    public NitroxId EntityId { get; }
 
     public EntityDestroy(NitroxId entityId)
     {

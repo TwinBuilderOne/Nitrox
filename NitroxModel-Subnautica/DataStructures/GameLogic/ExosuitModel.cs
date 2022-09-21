@@ -32,7 +32,7 @@ namespace NitroxModel_Subnautica.DataStructures.GameLogic
             RightArmId = new NitroxId();
         }
 
-        // Used for deserialization
+        /// <remarks>Used for deserialization</remarks>
         public ExosuitModel(
             NitroxTechType techType,
             NitroxId id,

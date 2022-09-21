@@ -111,7 +111,7 @@ namespace NitroxModel.DataStructures.GameLogic
             ExistingGameObjectChildIndex = null;
         }
 
-        // Used for deserialization
+        /// <remarks>Used for deserialization</remarks>
         public Entity(NitroxTransform transform, NitroxTechType techType, NitroxId id, int level, string classId, bool spawnedByServer, NitroxId waterParkId, byte[] serializedGameObject, bool existsInGlobalRoot, NitroxId parentId, EntityMetadata metadata, int? existingGameObjectChildIndex, List<Entity> childEntities)
         {
             Transform = transform;
@@ -131,7 +131,7 @@ namespace NitroxModel.DataStructures.GameLogic
 
         public override string ToString()
         {
-            return "[Entity Transform: " + Transform + " TechType: " + TechType + " Id: " + Id + " Level: " + Level + " classId: " + ClassId + " ChildEntities: " + string.Join(",\n ", ChildEntities) + " SpawnedByServer: " + SpawnedByServer + " ExistingGameObjectChildIndex: " + ExistingGameObjectChildIndex + "]";
+            return $"[Entity\n Transform: {Transform}\n TechType: {TechType}\n Id: {Id}\n Level: {Level}\n ClassId: {ClassId}\n ChildEntities: {string.Join(",\n ", ChildEntities)}\n SpawnedByServer: {SpawnedByServer}\n ExistingGameObjectChildIndex: {ExistingGameObjectChildIndex}]";
         }
     }
 }

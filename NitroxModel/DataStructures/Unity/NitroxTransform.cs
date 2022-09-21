@@ -29,6 +29,9 @@ namespace NitroxModel.DataStructures.Unity
             }
         }
 
+        /// <summary>
+        /// NitroxTransform is always attached to an Entity
+        /// </summary>
         public NitroxTransform Parent;
 
         [IgnoredMember]
@@ -84,9 +87,6 @@ namespace NitroxModel.DataStructures.Unity
 
         public NitroxTransform() { }
 
-        /// <summary>
-        /// NitroxTransform is always attached to an Entity
-        /// </summary>
         public NitroxTransform(NitroxVector3 localPosition, NitroxQuaternion localRotation, NitroxVector3 scale)
         {
             LocalPosition = localPosition;

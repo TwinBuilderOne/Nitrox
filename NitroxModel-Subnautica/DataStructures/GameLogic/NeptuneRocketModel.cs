@@ -36,7 +36,7 @@ namespace NitroxModel_Subnautica.DataStructures.GameLogic
             PreflightChecks = new ThreadSafeList<PreflightCheck>();
         }
 
-        // Used for deserialization
+        /// <remarks>Used for deserialization</remarks>
         public NeptuneRocketModel(
             NitroxTechType techType,
             NitroxId id,

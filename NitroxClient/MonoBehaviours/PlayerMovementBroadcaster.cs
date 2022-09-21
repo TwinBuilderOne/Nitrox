@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace NitroxClient.MonoBehaviours
 {
-    public class PlayerMovement : MonoBehaviour
+    public class PlayerMovementBroadcaster : MonoBehaviour
     {
         public const float BROADCAST_INTERVAL = 0.05f;
         private LocalPlayer localPlayer;

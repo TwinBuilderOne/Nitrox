@@ -60,7 +60,7 @@ namespace NitroxModel.DataStructures.GameLogic
             Health = health;
         }
 
-        // Used for deserialization
+        /// <remarks>Used for deserialization</remarks>
         public VehicleModel(NitroxTechType techType, NitroxId id, NitroxVector3 position, NitroxQuaternion rotation, ThreadSafeList<InteractiveChildObjectIdentifier> interactiveChildIdentifiers, Optional<NitroxId> dockingBayId, string name, NitroxVector3[] hsb, float health)
         {
             TechType = techType;

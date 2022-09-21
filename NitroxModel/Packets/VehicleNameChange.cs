@@ -18,7 +18,7 @@ namespace NitroxModel.Packets
             Name = name;
         }
 
-        // Used for deserialization
+        //// <remarks>Used for deserialization</remarks>
         public VehicleNameChange(Optional<NitroxId> parentId, NitroxId vehicleId, string name)
         {
             ParentId = parentId;

@@ -27,7 +27,7 @@ namespace NitroxModel.Packets
             NitroxVersionAllowed = new(ver.Major, ver.Minor);
         }
 
-        // Used for deserialization
+        /// <remarks>Used for deserialization</remarks>
         public MultiplayerSessionPolicy(string correlationId, bool disableConsole, int maxConnections, bool requiresServerPassword,
             MultiplayerSessionAuthenticationAuthority authenticationAuthority, NitroxVersion nitroxVersionAllowed) : base(correlationId)
         {

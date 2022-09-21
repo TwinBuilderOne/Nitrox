@@ -18,7 +18,7 @@ namespace NitroxModel_Subnautica.Packets
             FireCreatedData = new CyclopsFireData(id, cyclopsId, room, nodeIndex);
         }
 
-        // Used for deserialization
+        /// <remarks>Used for deserialization</remarks>
         public CyclopsFireCreated(CyclopsFireData fireCreatedData)
         {
             FireCreatedData = fireCreatedData;

@@ -34,16 +34,12 @@ namespace NitroxTest.Model.Packets
             IEnumerable<Type> types = typeof(Packet).Assembly.GetTypes().Concat(subnauticaModelAssembly.GetTypes());
             Dictionary<Type, Type[]> subtypesByBaseType = types
                 .Where(type => type.IsAbstract && !type.IsSealed && !type.ContainsGenericParameters && type != typeof(Packet))
-                .ToDictionary(type => type, type => types
-                    .Where(t => type.IsAssignableFrom(t) && !t.IsAbstract && !t.IsInterface).ToArray());
+                .ToDictionary(type => type, type => types.Where(t => type.IsAssignableFrom(t) && !t.IsAbstract && !t.IsInterface).ToArray());
 
-            Type testedType = null;
             List<Packet> packets = new();
 
             foreach (Type type in types.Where(p => typeof(Packet).IsAssignableFrom(p) && p.IsClass && !p.IsAbstract))
             {
-                testedType = type;
-
                 object faker = typeof(NitroxAutoFaker<>).MakeGenericType(type)
                     .GetConstructor(new Type[] { typeof(Dictionary<Type, Type[]>) })
                     .Invoke(new object[] { subtypesByBaseType.ToDictionary(pair => pair.Key, pair => pair.Value) });
@@ -76,12 +72,12 @@ namespace NitroxTest.Model.Packets
 
             foreach (Packet packet in packets)
             {
-                testedType = packet.GetType();
                 Packet deserialized = Packet.Deserialize(packet.Serialize());
 
                 ComparisonResult result = logic.Compare(packet, deserialized);
                 if (!result.AreEqual)
                 {
+                    failed = true;
                     Console.WriteLine($"Differences found:\n{result.DifferencesString}");
                 }
             }

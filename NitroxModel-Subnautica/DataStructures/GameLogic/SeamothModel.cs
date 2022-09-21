@@ -28,7 +28,7 @@ namespace NitroxModel_Subnautica.DataStructures.GameLogic
             LightOn = true;
         }
 
-        // Used for deserialization
+        /// <remarks>Used for deserialization</remarks>
         public SeamothModel(
             NitroxTechType techType,
             NitroxId id,

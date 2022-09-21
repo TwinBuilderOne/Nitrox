@@ -1,8 +1,7 @@
 ﻿using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NitroxModel.DataStructures;
 
-namespace NitroxTest.DataStructures
+namespace NitroxModel.DataStructures
 {
     [TestClass]
     public class NitroxVersionTest
