@@ -29,9 +29,6 @@ namespace NitroxModel.DataStructures.Unity
             }
         }
 
-        /// <summary>
-        /// NitroxTransform is always attached to an Entity
-        /// </summary>
         public NitroxTransform Parent;
 
         [IgnoredMember]
