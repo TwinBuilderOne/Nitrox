@@ -40,9 +40,10 @@ namespace NitroxTest.Model.Packets
 
             foreach (Type type in types.Where(p => typeof(Packet).IsAssignableFrom(p) && p.IsClass && !p.IsAbstract))
             {
-                object faker = typeof(NitroxAutoFaker<>).MakeGenericType(type)
-                    .GetConstructor(new Type[] { typeof(Dictionary<Type, Type[]>) })
-                    .Invoke(new object[] { subtypesByBaseType.ToDictionary(pair => pair.Key, pair => pair.Value) });
+                Dictionary<Type, Type[]> subtypesDict = subtypesByBaseType.ToDictionary(pair => pair.Key, pair => pair.Value);
+                object faker = typeof(NitroxAutoFaker<,>).MakeGenericType(type, typeof(PacketAutoBinder))
+                    .GetConstructor(new Type[] { typeof(Dictionary<Type, Type[]>), typeof(PacketAutoBinder) })
+                    .Invoke(new object[] { subtypesDict, new PacketAutoBinder(subtypesDict) });
 
                 if (subtypesByBaseType.ContainsKey(type))
                 {

@@ -6,15 +6,17 @@ using NitroxModel.DataStructures.GameLogic;
 
 namespace Nitrox.Test.Serialization.Helper;
 
-public class NitroxAutoFaker<TType> : AutoFaker<TType> where TType : class
+public class NitroxAutoFaker<TType, TBinder> : AutoFaker<TType>
+    where TType : class
+    where TBinder : NitroxAutoBinderBase
 {
-    public NitroxAutoFaker() : this(new Dictionary<Type, Type[]>()) { }
+    public NitroxAutoFaker(TBinder binder) : this(new Dictionary<Type, Type[]>(), binder) { }
 
-    public NitroxAutoFaker(Dictionary<Type, Type[]> subtypesByBaseType)
+    public NitroxAutoFaker(Dictionary<Type, Type[]> subtypesByBaseType, TBinder binder)
     {
         Configure(newBinder =>
         {
-            newBinder.WithBinder(new PacketAutoBinder(subtypesByBaseType))
+            newBinder.WithBinder(binder)
                      .WithOverride(new NitroxTechTypeOverride());
 
             if (subtypesByBaseType.Values.Count != 0)
@@ -23,7 +25,6 @@ public class NitroxAutoFaker<TType> : AutoFaker<TType> where TType : class
                 newBinder.WithRepeatCount(Math.Max(2, highestAbstractObjectCount));
             }
         });
-        Binder = new PacketAutoBinder(subtypesByBaseType);
     }
 
     private class NitroxTechTypeOverride : AutoGeneratorOverride
